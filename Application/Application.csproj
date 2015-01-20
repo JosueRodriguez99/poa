@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{143B7685-0272-4DA5-A925-615CE8391371}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Application</RootNamespace>
+    <AssemblyName>Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Institucion\Dto\DependenciaDto.cs" />
+    <Compile Include="Institucion\Dto\UsuarioDto.cs" />
+    <Compile Include="Institucion\Mappers\UsuarioMapper.cs" />
+    <Compile Include="Institucion\Services\DependenciaService.cs" />
+    <Compile Include="Institucion\Services\UsuarioService.cs" />
+    <Compile Include="Institucion\Services\IDependenciaService.cs" />
+    <Compile Include="Institucion\Services\IUsuarioService.cs" />
+    <Compile Include="Poa\MapperExtensionMethods\ActividadExtensionMethods.cs" />
+    <Compile Include="Poa\MapperExtensionMethods\ConceptoPresupuestoExtensionMethods.cs" />
+    <Compile Include="Poa\MapperExtensionMethods\PoaExtensionMethods.cs" />
+    <Compile Include="Poa\MapperExtensionMethods\ProductoExtensionMethods.cs" />
+    <Compile Include="Poa\MapperExtensionMethods\ProgramaEstrategicoExtensionMethods.cs" />
+    <Compile Include="Poa\Requests\ActualizarProductoRequest.cs" />
+    <Compile Include="Poa\Requests\ActualizarProgramaEstrategicoRequest.cs" />
+    <Compile Include="Poa\Requests\AgregarActividadRequest.cs" />
+    <Compile Include="Poa\Requests\AgregarEjecucionActividadRequest.cs" />
+    <Compile Include="Poa\Requests\AgregarEjecucionTareaRequest.cs" />
+    <Compile Include="Poa\Requests\AgregarIndicadorActividadRequest.cs" />
+    <Compile Include="Poa\Requests\AgregarIndicadorTareaRequest.cs" />
+    <Compile Include="Poa\Requests\AgregarProgramacionActividadRequest.cs" />
+    <Compile Include="Poa\Requests\AgregarProgramacionTareaRequest.cs" />
+    <Compile Include="Poa\Requests\AgregarTareaRequest.cs" />
+    <Compile Include="Poa\Requests\CrearPoaRequest.cs" />
+    <Compile Include="Poa\Requests\CrearProductoRequest.cs" />
+    <Compile Include="Poa\Requests\CrearProgramaEstrategicoRequest.cs" />
+    <Compile Include="Poa\Requests\ObtenerPoaPorDependenciaRequest.cs" />
+    <Compile Include="Poa\Responses\ObtenerProductoPorIdResponse.cs" />
+    <Compile Include="Poa\Responses\ObtenerProgramaEstrategicoPorIdResponse.cs" />
+    <Compile Include="Poa\ViewModels\ActividadViewModel.cs" />
+    <Compile Include="Poa\ViewModels\ConceptoPresupuestoViewModel.cs" />
+    <Compile Include="Poa\ViewModels\EjecucionActividadViewModel.cs" />
+    <Compile Include="Poa\ViewModels\EjecucionTareaViewModel.cs" />
+    <Compile Include="Poa\ViewModels\EstadoPoaViewModel.cs" />
+    <Compile Include="Poa\ViewModels\IndicadorActividadViewModel.cs" />
+    <Compile Include="Poa\ViewModels\IndicadorTareaViewModel.cs" />
+    <Compile Include="Poa\ViewModels\PoaViewModel.cs" />
+    <Compile Include="Poa\ViewModels\PresupuestoViewModel.cs" />
+    <Compile Include="Poa\ViewModels\ProductoViewModel.cs" />
+    <Compile Include="Poa\ViewModels\ProgramacionActividadViewModel.cs" />
+    <Compile Include="Poa\ViewModels\ProgramacionTareaViewModel.cs" />
+    <Compile Include="Poa\ViewModels\ProgramaEstrategicoViewModel.cs" />
+    <Compile Include="Poa\Requests\AgregarPresupuestoRequest.cs" />
+    <Compile Include="Poa\Requests\EliminarProductoRequest.cs" />
+    <Compile Include="Poa\Requests\EliminarProgramaEstrategicoRequest.cs" />
+    <Compile Include="Poa\Responses\ObtenerConceptosPresupuestoResponse.cs" />
+    <Compile Include="Poa\Responses\ObtenerPoaPorDependenciaResponse.cs" />
+    <Compile Include="Poa\Responses\ObtenerProductosResponse.cs" />
+    <Compile Include="Poa\Responses\ObtenerProgramasEstrategicosResponse.cs" />
+    <Compile Include="Poa\Responses\ObtenerTodosLosPoaResponse.cs" />
+    <Compile Include="Poa\Responses\ObtenerUnidadesMedidaResponse.cs" />
+    <Compile Include="Poa\Services\ConceptoPresupuestoService.cs" />
+    <Compile Include="Poa\Services\IConceptoPresupuestoService.cs" />
+    <Compile Include="Poa\Services\IPoaService.cs" />
+    <Compile Include="Poa\Services\IProductoService.cs" />
+    <Compile Include="Poa\Services\IProgramaEstrategicoService.cs" />
+    <Compile Include="Poa\Services\PoaService.cs" />
+    <Compile Include="Poa\Services\ProductoService.cs" />
+    <Compile Include="Poa\Services\ProgramaEstrategicoService.cs" />
+    <Compile Include="Poa\ViewModels\TareaViewModel.cs" />
+    <Compile Include="Poa\ViewModels\UnidadMedidaViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{ab8cca4e-bfb7-4aa7-868d-299a269549c1}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{1eaea86b-9fb2-4500-8578-7257a90537f2}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,42 @@
+﻿@model List<Application.Institucion.ViewModel.DependenciaViewModel>
+
+@{
+    ViewBag.Title = "Dependencias";
+}
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr><th>Nombre</th><th>Responsable</th><th>Reporta a</th><th>Analista</th><th>Estado</th><th>Acción</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var dependencia in Model)
+            {
+                <td>@dependencia.Nombre</td>
+                <td>@dependencia.Responsable</td>
+                <td>@dependencia.Reporta</td>
+                <td>@dependencia.Analista</td>
+                <td>@dependencia.Estado</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { dependencia.Id })/
+                    @Html.ActionLink("Eliminar", "Delete", new { dependencia.Id })
+                </td>   
+            }
+        </tr>    
+    </tbody>
+</table>
+
+<!-- Botones de control -->
+<div class="row">
+    <div class="col-sm-12">
+        <a href="~/Dependencias/Create">
+            <button type="button" class="btn btn-default">Agregar</button>
+        </a>
+        <div class="btn-toolbar pull-right" role="toolbar">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">Anterior</button>
+                <button type="button" class="btn btn-default">Siguiente</button>
+            </div>
+        </div>
+    </div>
+</div>

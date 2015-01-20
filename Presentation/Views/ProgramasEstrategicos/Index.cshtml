@@ -1,0 +1,41 @@
+﻿@model Presentation.Models.Poa.IndexProgramaEstrategicoPageView
+
+@{
+    ViewBag.Title = "Programas Estrategicos";
+    var programasEstrategicos = Model.ProgramaEstrategicoViewModels;
+}
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr><th>Nombre</th><th>Descripción</th><th>Estado</th><th>Acción</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var programaEstrategico in programasEstrategicos)
+        {
+            <tr>
+                <td>@programaEstrategico.Nombre</td>
+                <td>@programaEstrategico.Descripcion</td>
+                <td>@programaEstrategico.Estado</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { programaEstrategico.Id })/
+                    @Html.ActionLink("Eliminar", "Delete", new {programaEstrategico.Id })
+                </td>
+            </tr>        
+        }    
+    </tbody>
+</table>
+
+<!-- Botones de control -->
+<div class="row">
+    <div class="col-sm-12">
+        <a href="~/ProgramasEstrategicos/Create">
+            <button type="button" class="btn btn-default">Agregar</button>
+        </a>
+        <div class="btn-toolbar pull-right" role="toolbar">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">Anterior</button>
+                <button type="button" class="btn btn-default">Siguiente</button>
+            </div>
+        </div>
+    </div>
+</div>

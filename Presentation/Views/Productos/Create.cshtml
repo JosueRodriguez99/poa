@@ -1,0 +1,41 @@
+﻿@model Presentation.Models.Poa.CreateProductoPageView
+
+@{
+    ViewBag.Title = "Productos";
+    var programasEstrategicos = Model.ProgramaEstrategicoViewModels;
+}
+
+<div class="light-box-form">
+    
+    <form action="~/Productos/Create" method="POST">
+        
+        <div class="form-group">
+            <label>Código:</label>
+            <input name="Codigo" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Descripción:</label>
+            <input name="Descripcion" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Programa Estrategico:</label>
+            <select class="form-control" name="ProgramaEstrategicoId">
+            @foreach (var programaEstrategico in programasEstrategicos)
+            {
+                <option value="@programaEstrategico.Id">@programaEstrategico.Nombre</option>
+            }
+            </select>
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox" name="Activo" checked="true">Activo</label>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Guardar">   
+        <button class="btn btn-danger">Cerrar</button>
+
+    </form>
+
+</div>

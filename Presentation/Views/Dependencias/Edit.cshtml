@@ -1,0 +1,55 @@
+﻿@model Presentation.Models.Poa.EditDependenciaPageView
+
+@{
+    ViewBag.Title = "Dependencias";
+}
+
+<div class="light-box-form">
+    
+    <form action="~/Dependencias/Create" method="POST">
+        
+        <div class="form-group">
+            <label>Nombre:</label>
+            <input name="Codigo" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Responsable:</label>
+            <select class="form-control">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Reporta a:</label>
+            <select class="form-control">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Analista Asignado:</label>
+            <select class="form-control">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox" name="Activo" checked="true">Activo</label>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Guardar">   
+        <button class="btn btn-danger">Cerrar</button>
+
+    </form>
+
+</div>

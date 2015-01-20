@@ -1,0 +1,32 @@
+﻿@model Presentation.Models.Poa.CreateProgramaEstrategicoPageView
+
+@{
+    ViewBag.Title = "Programas Estrategicos";
+}
+
+<div class="light-box-form">
+    
+    <form action="~/ProgramasEstrategicos/Create" method="POST">
+        
+        <div class="form-group">
+            <label>Nombre:</label>
+            <input name="Nombre" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Descripción:</label>
+            <textarea name="Descripcion" class="form-control"></textarea>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="Activo" checked="true">Activo
+            </label>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Guardar">   
+        <button class="btn btn-danger">Cerrar</button>
+
+    </form>
+
+</div>

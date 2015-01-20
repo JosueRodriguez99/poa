@@ -1,0 +1,33 @@
+﻿@model Presentation.Models.Poa.EditProgramaEstrategicoPageView
+
+@{
+    ViewBag.Title = "Programas Estrategicos";
+    var programaEstrategico = Model.ProgramaEstrategicoViewModel;
+}
+
+<div class="light-box-form">
+    
+    <form method="POST" action="/ProgramasEstrategicos/Edit/@programaEstrategico.Id">
+
+        <div class="form-group">
+            <label>Nombre:</label>
+            <input type="text" name="Nombre" class="form-control" value="@programaEstrategico.Nombre"/>
+        </div>
+
+        <div class="form-group">
+            <label>Descripción:</label>
+            <textarea name="Descripcion" class="form-control">@programaEstrategico.Descripcion</textarea>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="Activo" checked="@programaEstrategico.Activo">Activo
+            </label>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Guardar">   
+        <button class="btn btn-danger">Cerrar</button>
+    
+    </form>
+
+</div>

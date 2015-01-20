@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Sistema Integrado de Planificación";
+}
+
+<div class="light-box-form">
+    <form action="~/ProgramasEstrategicos/Create" method="POST" style="width: 300px">
+        <!-- <div class="alert alert-danger" role="alert">
+                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                 <span class="sr-only">Error:</span>
+                 {{form.error.mensaje}}
+             </div> -->
+        <h2>Ingresar</h2>
+        <div class="form-group">
+            <label>Usuario:</label>
+            <input name="Usuario" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Contraseña:</label>
+            <input name="Contrasena" type="password" class="form-control"/>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Ingresar">   
+    </form>
+</div>
