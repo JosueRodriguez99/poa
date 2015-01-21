@@ -1,6 +1,7 @@
-﻿using System.Linq;
-using Application.Poa.MapperExtensionMethods;
-using Application.Poa.Responses;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Application.Poa.Mappers;
+using Application.Poa.ViewModels;
 using Domain.Poa;
 using System;
 using Infrastructure.NHibernate;
@@ -18,15 +19,15 @@ namespace Application.Poa.Services
         }
 
         [UnitOfWork]
-        public ObtenerConceptosPresupuestoResponse ObtenerConceptosPresupuesto()
+        public List<ConceptoPresupuestoViewModel> ObtenerConceptosPresupuesto()
         {
-            var response = new ObtenerConceptosPresupuestoResponse();
+            var conceptoPresupuestoViewModels = new List<ConceptoPresupuestoViewModel>();
             var conceptosPresupuesto = _repository.GetAll().ToList();
 
             foreach (var conceptoPresupuesto in conceptosPresupuesto)
-                response.ConceptosPresupuesto.Add(conceptoPresupuesto.ToViewModel());
+                conceptoPresupuestoViewModels.Add(conceptoPresupuesto.ToViewModel());
             
-            return response;
+            return conceptoPresupuestoViewModels;
         }
     }
 }

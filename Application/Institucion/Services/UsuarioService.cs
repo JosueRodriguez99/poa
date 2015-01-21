@@ -37,9 +37,9 @@ namespace Application.Institucion.Services
             _repository.Delete(id);
         }
 
-        public UsuarioDto ObtenerUsuarioPorId(int id)
+        public UsuarioViewModel ObtenerUsuarioPorId(int id)
         {
-            return _repository.Get(id).ToUsuarioDto();
+            return _repository.Get(id).ToViewModel();
         }
 
         [UnitOfWork]

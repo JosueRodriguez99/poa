@@ -1,6 +1,7 @@
-﻿using Application.Poa.MapperExtensionMethods;
-using Application.Poa.Requests;
-using Application.Poa.Responses;
+﻿using System.Collections.Generic;
+using Application.Poa.Dto;
+using Application.Poa.Mappers;
+using Application.Poa.ViewModels;
 using Domain.Poa;
 using Infrastructure.NHibernate;
 using System;
@@ -18,54 +19,50 @@ namespace Application.Poa.Services
             _repository = repository;
         }
 
-        public void CrearProgramaEstrategico(CrearProgramaEstrategicoRequest request)
+        public void CrearProgramaEstrategico(ProgramaEstrategicoDto request)
         {
             if (request == null) throw new ArgumentNullException("request");
-            _repository.Insert(request.ProgramaEstrategicoViewModel.ToEntity());
+            _repository.Insert(request.ToProgramaEstrategico());
         }
 
-        public void ActualizarProgramaEstrategico(ActualizarProgramaEstrategicoRequest request)
+        public void ActualizarProgramaEstrategico(ProgramaEstrategicoDto request)
         {
             if (request == null) throw new ArgumentNullException("request");
-            
-            throw new NotImplementedException();
+            _repository.Update(request.ToProgramaEstrategico());
         }
 
-        public void EliminarProgramaEstrategico(EliminarProgramaEstrategicoRequest request)
+        public void EliminarProgramaEstrategico(int id)
         {
-            if (request == null) throw new ArgumentNullException("request");
-            _repository.Delete(request.ProgramaEstrategicoId);
+            _repository.Delete(id);
         }
 
-        public ObtenerProgramaEstrategicoPorIdResponse ObtenerProgramaEstrategicoPorId(int id)
+        public ProgramaEstrategicoViewModel ObtenerProgramaEstrategicoPorId(int id)
         {
-            var response = new ObtenerProgramaEstrategicoPorIdResponse();
-            response.ProgramaEstrategico = _repository.Get(id).ToViewModel();
-            return response;
+            return _repository.Get(id).ToViewModel();
         }
 
         [UnitOfWork]
-        public ObtenerProgramasEstrategicosResponse ObtenerProgramasEstrategicos()
+        public List<ProgramaEstrategicoViewModel> ObtenerProgramasEstrategicos()
         {
-            var response = new ObtenerProgramasEstrategicosResponse();
-            var programasEstrategicosGuardados = _repository.GetAll().ToList();
+            var programasEStrategicoViewModels = new List<ProgramaEstrategicoViewModel>();
+            var programasEstrategicos = _repository.GetAll().ToList();
 
-            foreach (var programaEstrategico in programasEstrategicosGuardados)
-                response.ProgramasEstrategicos.Add(programaEstrategico.ToViewModel());
+            foreach (var programaEstrategico in programasEstrategicos)
+                programasEStrategicoViewModels.Add(programaEstrategico.ToViewModel());
 
-            return response;
+            return programasEStrategicoViewModels;
         }
 
         [UnitOfWork]
-        public ObtenerProgramasEstrategicosResponse ObtenerProgramasEstrategicosActivos()
+        public List<ProgramaEstrategicoViewModel> ObtenerProgramasEstrategicosActivos()
         {
-            var response = new ObtenerProgramasEstrategicosResponse();
-            var programasEstrategicosActivos = _repository.GetAll().Where(x => x.Activo).ToList();
+            var programasEStrategicoViewModels = new List<ProgramaEstrategicoViewModel>();
+            var programasEstrategicos = _repository.GetAll().Where(x => x.Activo).ToList();
 
-            foreach (var programaEstrategico in programasEstrategicosActivos)
-                response.ProgramasEstrategicos.Add(programaEstrategico.ToViewModel());
+            foreach (var programaEstrategico in programasEstrategicos)
+                programasEStrategicoViewModels.Add(programaEstrategico.ToViewModel());
 
-            return response;
+            return programasEStrategicoViewModels;
         }
     }
 }

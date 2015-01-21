@@ -1,9 +1,10 @@
-﻿using Application.Poa.ViewModels;
+﻿using Application.Poa.Dto;
+using Application.Poa.ViewModels;
 using Domain.Poa;
 
-namespace Application.Poa.MapperExtensionMethods
+namespace Application.Poa.Mappers
 {
-    public static class ProductoExtensionMethods
+    public static class ProductoMapper
     {
         public static ProductoViewModel ToViewModel(this Producto producto)
         {
@@ -15,12 +16,13 @@ namespace Application.Poa.MapperExtensionMethods
             return viewModel;
         }
 
-        public static Producto ToEntity(this ProductoViewModel viewModel)
+        public static Producto ToProducto(this ProductoDto dto)
         {
             var producto = new Producto();
-            producto.Codigo = viewModel.Codigo;
-            producto.Descripcion = viewModel.Descripcion;
-            producto.Activo = (viewModel.Estado == "Activo");
+            producto.Id = dto.Id;
+            producto.Codigo = dto.Codigo;
+            producto.Descripcion = dto.Descripcion;
+            producto.Activo = dto.Activo;
             return producto;
         }
     }

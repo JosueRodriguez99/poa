@@ -150,25 +150,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Institucion\CreateUsuarioPageView.cs" />
-    <Compile Include="Models\Institucion\EditUsuarioPageView.cs" />
-    <Compile Include="Models\Institucion\IndexUsuarioPageView.cs" />
-    <Compile Include="Models\Poa\CreateDependenciaPageView.cs" />
-    <Compile Include="Models\Poa\CreateProductoPageView.cs" />
-    <Compile Include="Models\Poa\CreateProgramaEstrategicoPageView.cs" />
-    <Compile Include="Models\Poa\CreateUsuarioPageView.cs" />
-    <Compile Include="Models\Poa\DeleteDependenciaPageView.cs" />
-    <Compile Include="Models\Poa\DeleteProductoPageView.cs" />
-    <Compile Include="Models\Poa\DeleteProgramaEstrategicoPageView.cs" />
-    <Compile Include="Models\Poa\DeleteUsuarioPageView.cs" />
-    <Compile Include="Models\Poa\EditDependenciaPageView.cs" />
+    <Compile Include="Models\Institucion\CreateDependenciaPageView.cs" />
+    <Compile Include="Models\Institucion\EditDependenciaPageView.cs" />
     <Compile Include="Models\Poa\EditProductoPageView.cs" />
-    <Compile Include="Models\Poa\EditProgramaEstrategicoPageView.cs" />
-    <Compile Include="Models\Poa\EditUsuarioPageView.cs" />
-    <Compile Include="Models\Poa\IndexDependenciaPageView.cs" />
-    <Compile Include="Models\Poa\IndexProductoPageView.cs" />
-    <Compile Include="Models\Poa\IndexProgramaEstrategicoPageView.cs" />
-    <Compile Include="Models\Poa\IndexUsuarioPageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

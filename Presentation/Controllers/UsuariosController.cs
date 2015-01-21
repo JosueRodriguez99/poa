@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
-using Application.Institucion.Requests;
+using Application.Institucion.Dto;
 using Application.Institucion.Services;
-using Application.Institucion.ViewModel;
-using Domain.Institucion;
 
 namespace Presentation.Controllers
 {
@@ -20,8 +18,8 @@ namespace Presentation.Controllers
         // GET: /Usuarios/
         public ActionResult Index()
         {
-            var response = _service.ObtenerUsuarios();
-            return View(response.Usuarios);
+            var usuarios = _service.ObtenerUsuarios();
+            return View(usuarios);
         }
 
         // GET: /Usuarios/Create
@@ -36,14 +34,11 @@ namespace Presentation.Controllers
         {
             try
             {
-                
-                var viewModel = new UsuarioViewModel();
-                viewModel.NombreUsuario = collection["Usuario"];
-                viewModel.Estado = (collection["Activo"] == "on") ? "Activo" : "Inactivo";
-                viewModel.RolUsuario = ((RolUsuario)Convert.ToInt32(collection["RolUsuarioId"])).ToString();
-                
-                var request = new CrearUsuarioRequest(viewModel);
-                _service.CrearUsuario(request);
+                var dto = new UsuarioDto();
+                dto.NombreUsuario = collection["Usuario"];
+                dto.Activo = (collection["Activo"] == "on");
+                dto.RolUsuario = Convert.ToInt32(collection["RolUsuarioId"]);   
+                _service.CrearUsuario(dto);
                 return RedirectToAction("Index");
             }
             catch
@@ -55,8 +50,8 @@ namespace Presentation.Controllers
         // GET: /Usuarios/Edit/5
         public ActionResult Edit(int id)
         {
-            var usuarioResponse = _service.ObtenerUsuarioPorId(id);
-            return View(usuarioResponse.UsuarioViewModel);
+            var usuario = _service.ObtenerUsuarioPorId(id);
+            return View(usuario);
         }
 
         // POST: /Usuarios/Edit/5
@@ -65,19 +60,25 @@ namespace Presentation.Controllers
         {
             try
             {
-
+                var dto = new UsuarioDto();
+                dto.Id = id;
+                dto.NombreUsuario = collection["Usuario"];
+                dto.Activo = (collection["Activo"] == "on");
+                dto.RolUsuario = Convert.ToInt32(collection["RolUsuarioId"]);
+                _service.CrearUsuario(dto);
                 return RedirectToAction("Index");
             }
             catch
             {
-                var usuarioResponse = _service.ObtenerUsuarioPorId(id);
-                return View(usuarioResponse.UsuarioViewModel);
+                var usuario = _service.ObtenerUsuarioPorId(id);
+                return View(usuario);
             }
         }
 
         // GET: /Usuarios/Delete/5
         public ActionResult Delete(int id)
         {
+            _service.EliminarUsuario(id);
             return View();
         }
 
@@ -87,8 +88,6 @@ namespace Presentation.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
                 return RedirectToAction("Index");
             }
             catch

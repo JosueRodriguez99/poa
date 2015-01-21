@@ -1,8 +1,7 @@
-﻿@model Presentation.Models.Poa.IndexProgramaEstrategicoPageView
+﻿@model List<Application.Poa.ViewModels.ProgramaEstrategicoViewModel>
 
 @{
-    ViewBag.Title = "Programas Estrategicos";
-    var programasEstrategicos = Model.ProgramaEstrategicoViewModels;
+    ViewBag.Title = "Programas Estrategicos";;
 }
 
 <table class="table table-hover table-bordered">
@@ -10,7 +9,7 @@
         <tr><th>Nombre</th><th>Descripción</th><th>Estado</th><th>Acción</th></tr>
     </thead>
     <tbody>
-        @foreach (var programaEstrategico in programasEstrategicos)
+        @foreach (var programaEstrategico in Model)
         {
             <tr>
                 <td>@programaEstrategico.Nombre</td>

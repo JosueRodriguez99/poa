@@ -1,6 +1,6 @@
 ﻿using Application.Poa.ViewModels;
 
-namespace Application.Poa.MapperExtensionMethods
+namespace Application.Poa.Mappers
 {
     public static class PoaExtensionMethods
     {

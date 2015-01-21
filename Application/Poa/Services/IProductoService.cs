@@ -1,15 +1,16 @@
-﻿using Application.Poa.Requests;
-using Application.Poa.Responses;
+﻿using System.Collections.Generic;
+using Application.Poa.Dto;
+using Application.Poa.ViewModels;
 
 namespace Application.Poa.Services
 {
     public interface IProductoService
     {
-        void CrearProducto(CrearProductoRequest request);
-        void ActualizarProducto(ActualizarProductoRequest request);
-        void EliminarProducto(EliminarProductoRequest request);
-        ObtenerProductoPorIdResponse ObtenerProductoPorId(int id);
-        ObtenerProductosResponse ObtenerProductos();
-        ObtenerProductosResponse ObtenerProductosActivos();
+        void CrearProducto(ProductoDto request);
+        void ActualizarProducto(ProductoDto request);
+        void EliminarProducto(int id);
+        ProductoViewModel ObtenerProductoPorId(int id);
+        List<ProductoViewModel> ObtenerProductos();
+        List<ProductoViewModel> ObtenerProductosActivos();
     }
 }

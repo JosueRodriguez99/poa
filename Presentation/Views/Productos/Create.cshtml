@@ -1,8 +1,7 @@
-﻿@model Presentation.Models.Poa.CreateProductoPageView
+﻿@model List<Application.Poa.ViewModels.ProgramaEstrategicoViewModel>
 
 @{
     ViewBag.Title = "Productos";
-    var programasEstrategicos = Model.ProgramaEstrategicoViewModels;
 }
 
 <div class="light-box-form">
@@ -22,7 +21,7 @@
         <div class="form-group">
             <label>Programa Estrategico:</label>
             <select class="form-control" name="ProgramaEstrategicoId">
-            @foreach (var programaEstrategico in programasEstrategicos)
+            @foreach (var programaEstrategico in Model)
             {
                 <option value="@programaEstrategico.Id">@programaEstrategico.Nombre</option>
             }

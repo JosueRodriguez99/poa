@@ -1,9 +1,10 @@
-﻿using Application.Poa.Responses;
+﻿using System.Collections.Generic;
+using Application.Poa.ViewModels;
 
 namespace Application.Poa.Services
 {
     interface IConceptoPresupuestoService
     {
-        ObtenerConceptosPresupuestoResponse ObtenerConceptosPresupuesto();
+        List<ConceptoPresupuestoViewModel> ObtenerConceptosPresupuesto();
     }
 }

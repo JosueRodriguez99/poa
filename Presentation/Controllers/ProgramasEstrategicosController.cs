@@ -1,9 +1,7 @@
-﻿using Application.Poa.Requests;
+﻿using Application.Poa.Dto;
 using Application.Poa.Services;
 using System;
 using System.Web.Mvc;
-using Application.Poa.ViewModels;
-using Presentation.Models.Poa;
 
 namespace Presentation.Controllers
 {
@@ -20,17 +18,14 @@ namespace Presentation.Controllers
         // GET: /ProgramasEstrategicos/
         public ActionResult Index()
         {
-            var response = _service.ObtenerProgramasEstrategicos();
-            var pageView = new IndexProgramaEstrategicoPageView();
-            pageView.ProgramaEstrategicoViewModels = response.ProgramasEstrategicos;
-            return View(pageView);
+            var programasEstrategicos = _service.ObtenerProgramasEstrategicos();
+            return View(programasEstrategicos);
         }
 
         // GET: /ProgramasEstrategicos/Create
         public ActionResult Create()
         {
-            var pageView = new CreateProgramaEstrategicoPageView();
-            return View(pageView);
+            return View();
         }
 
         // POST: /ProgramasEstrategicos/Create
@@ -39,31 +34,23 @@ namespace Presentation.Controllers
         {
             try
             {
-                var request = new CrearProgramaEstrategicoRequest();
-                var viewModel = new ProgramaEstrategicoViewModel();
-                viewModel.Nombre = collection["Nombre"];
-                viewModel.Descripcion = collection["Descripcion"];
-                viewModel.Estado = (collection["Activo"] == "on") ? "Activo" : "Inactivo";
-                request.ProgramaEstrategicoViewModel = viewModel;
-                _service.CrearProgramaEstrategico(request);
+                var dto = new ProgramaEstrategicoDto();
+                dto.Nombre = collection["Nombre"];
+                dto.Descripcion = collection["Descripcion"];
+                dto.Activo = collection["Activo"] == "on";
+                _service.CrearProgramaEstrategico(dto);
                 return RedirectToAction("Index");
             }
             catch
             {
-                var pageView = new CreateProgramaEstrategicoPageView();
-                return View(pageView);
+                return View();
             }
         }
 
         // GET: /ProgramasEstrategicos/Edit/5
         public ActionResult Edit(int id)
         {
-            var response = _service.ObtenerProgramaEstrategicoPorId(id);
-            var pageView = new EditProgramaEstrategicoPageView
-            {
-                ProgramaEstrategicoViewModel = response.ProgramaEstrategico
-            };
-            return View(pageView);
+            return View();
         }
 
         // POST: /ProgramasEstrategicos/Edit/5
@@ -72,34 +59,25 @@ namespace Presentation.Controllers
         {
             try
             {
-                var viewModel = new ProgramaEstrategicoViewModel
-                {
-                    Nombre = collection["Nombre"],
-                    Descripcion = collection["Descripcion"],
-                    Estado = (collection["Activo"] == "on") ? "Activo" : "Inactivo"
-                };
-                var request = new ActualizarProgramaEstrategicoRequest();
-                request.ProgramaEstrategicoViewModel = viewModel;
-                _service.ActualizarProgramaEstrategico(request);
+                var dto = new ProgramaEstrategicoDto();
+                dto.Id = id;
+                dto.Nombre = collection["Nombre"];
+                dto.Descripcion = collection["Descripcion"];
+                dto.Activo = collection["Activo"] == "on";
+                _service.CrearProgramaEstrategico(dto);
+                return RedirectToAction("Index");
                 return RedirectToAction("Index");
             }
             catch
             {
-                var response = _service.ObtenerProgramaEstrategicoPorId(id);
-                var pageView = new EditProgramaEstrategicoPageView
-                {
-                    ProgramaEstrategicoViewModel = response.ProgramaEstrategico
-                };
-                return View(pageView);
+                return View();
             }   
         }
 
         // GET: /ProgramasEstrategicos/Delete/5
         public ActionResult Delete(int id)
         {
-            var request = new EliminarProgramaEstrategicoRequest();
-            request.ProgramaEstrategicoId = id;
-            _service.EliminarProgramaEstrategico(request);
+            _service.EliminarProgramaEstrategico(id);
             return RedirectToAction("Index");
         }
 

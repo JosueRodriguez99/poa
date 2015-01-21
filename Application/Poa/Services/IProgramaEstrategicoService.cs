@@ -1,15 +1,16 @@
-﻿using Application.Poa.Requests;
-using Application.Poa.Responses;
+﻿using System.Collections.Generic;
+using Application.Poa.Dto;
+using Application.Poa.ViewModels;
 
 namespace Application.Poa.Services
 {
     public interface IProgramaEstrategicoService
     {
-        void CrearProgramaEstrategico(CrearProgramaEstrategicoRequest request);
-        void ActualizarProgramaEstrategico(ActualizarProgramaEstrategicoRequest request);
-        void EliminarProgramaEstrategico(EliminarProgramaEstrategicoRequest request);
-        ObtenerProgramaEstrategicoPorIdResponse ObtenerProgramaEstrategicoPorId(int id);
-        ObtenerProgramasEstrategicosResponse ObtenerProgramasEstrategicos();
-        ObtenerProgramasEstrategicosResponse ObtenerProgramasEstrategicosActivos();
+        void CrearProgramaEstrategico(ProgramaEstrategicoDto request);
+        void ActualizarProgramaEstrategico(ProgramaEstrategicoDto request);
+        void EliminarProgramaEstrategico(int id );
+        ProgramaEstrategicoViewModel ObtenerProgramaEstrategicoPorId(int id);
+        List<ProgramaEstrategicoViewModel> ObtenerProgramasEstrategicos();
+        List<ProgramaEstrategicoViewModel> ObtenerProgramasEstrategicosActivos();
     }
 }

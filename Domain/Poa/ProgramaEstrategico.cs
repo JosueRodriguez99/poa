@@ -12,11 +12,6 @@ namespace Domain.Poa
         public virtual IList<Presupuesto> Presupuestos { get; set; }
         public virtual bool Activo { get; set; }
 
-        public void Desactivar()
-        {
-            
-        }
-
         public ProgramaEstrategico()
         {
             Productos = new List<Producto>();

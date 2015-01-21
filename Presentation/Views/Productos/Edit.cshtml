@@ -2,7 +2,8 @@
 
 @{
     ViewBag.Title = "Productos";
-    var programasEstrategicos = Model.ProgramaEstrategicoViewModels;
+    var programasEstrategicos = Model.ProgramasEstrategico;
+    var producto = Model.Producto;
 }
 
 <div class="light-box-form">
@@ -11,12 +12,12 @@
         
         <div class="form-group">
             <label>Código:</label>
-            <input name="Codigo" type="text" class="form-control" value="Valor pasado"/>
+            <input name="Codigo" type="text" class="form-control" value="@producto.Codigo"/>
         </div>
 
         <div class="form-group">
             <label>Descripción:</label>
-            <input name="Descripcion" type="text" class="form-control" value="Valor pasado"/>
+            <textarea name="Descripcion" class="form-control">@producto.Descripcion</textarea>
         </div>
 
         <div class="form-group">

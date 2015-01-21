@@ -1,8 +1,7 @@
-﻿@model Presentation.Models.Poa.IndexProductoPageView
+﻿@model List<Application.Poa.ViewModels.ProductoViewModel>
 
 @{
     ViewBag.Title = "Productos";
-    var productos = Model.ProductoViewModels;
 }
 
 <table class="table table-hover table-bordered">
@@ -10,7 +9,7 @@
         <tr><th>Código</th><th>Descripción</th><th>Programa Estrategico</th><th>Estado</th><th>Acción</th></tr>
     </thead>
     <tbody>
-        @foreach (var producto in productos)
+        @foreach (var producto in Model)
         {
             <tr>
                 <td>@producto.Codigo</td>

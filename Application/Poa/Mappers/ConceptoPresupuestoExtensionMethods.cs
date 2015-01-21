@@ -1,7 +1,7 @@
 ﻿using Application.Poa.ViewModels;
 using Domain.Poa;
 
-namespace Application.Poa.MapperExtensionMethods
+namespace Application.Poa.Mappers
 {
     public static class ConceptoPresupuestoExtensionMethods
     {

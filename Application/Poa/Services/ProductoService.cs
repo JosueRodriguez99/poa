@@ -1,7 +1,8 @@
-﻿using System.Linq;
-using Application.Poa.MapperExtensionMethods;
-using Application.Poa.Requests;
-using Application.Poa.Responses;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Application.Poa.Dto;
+using Application.Poa.Mappers;
+using Application.Poa.ViewModels;
 using Domain.Poa;
 using System;
 using Infrastructure.NHibernate;
@@ -23,60 +24,58 @@ namespace Application.Poa.Services
         }
 
         [UnitOfWork]
-        public void CrearProducto(CrearProductoRequest request)
+        public void CrearProducto(ProductoDto request)
         {
             if (request == null) throw new ArgumentNullException("request");
 
             var programaEstrategico = ProgramaEstrategicoRepository.Get(request.ProgramaEstrategicoId);
-            programaEstrategico.AgregarProducto(request.ProductoViewModel.ToEntity());
+            programaEstrategico.AgregarProducto(request.ToProducto());
             ProgramaEstrategicoRepository.Update(programaEstrategico);
         }
 
         [UnitOfWork]
-        public void ActualizarProducto(ActualizarProductoRequest request)
+        public void ActualizarProducto(ProductoDto request)
         {
             if (request == null) throw new ArgumentNullException("request");
 
-            var producto = request.ProductoViewModel.ToEntity();
+            var producto = request.ToProducto();
             producto.ProgramaEstrategico = ProgramaEstrategicoRepository.Get(request.ProgramaEstrategicoId);
             ProductoRepository.Update(producto);
         }
 
-        public void EliminarProducto(EliminarProductoRequest request)
+        public void EliminarProducto(int id)
         {
-            if (request == null) throw new ArgumentNullException("request");
-            ProductoRepository.Delete(request.ProductoId);
+            ProductoRepository.Delete(id);
         }
 
-        public ObtenerProductoPorIdResponse ObtenerProductoPorId(int id)
+        public ProductoViewModel ObtenerProductoPorId(int id)
         {
-            var response = new ObtenerProductoPorIdResponse();
-            response.ProductoViewModel = ProductoRepository.Get(id).ToViewModel();
-            return response;
+            return ProductoRepository.Get(id).ToViewModel();
         }
 
         [UnitOfWork]
-        public ObtenerProductosResponse ObtenerProductos()
+        public List<ProductoViewModel> ObtenerProductos()
         {
-            var response = new ObtenerProductosResponse();
+            var productoViewModels = new List<ProductoViewModel>();
             var productosGuardados = ProductoRepository.GetAll().ToList();
 
             foreach (var productoGuardado in productosGuardados)
-                response.Productos.Add(productoGuardado.ToViewModel());
+                productoViewModels.Add(productoGuardado.ToViewModel());
 
-            return response;
+            return productoViewModels;
         }
 
         [UnitOfWork]
-        public ObtenerProductosResponse ObtenerProductosActivos()
+        public List<ProductoViewModel> ObtenerProductosActivos()
         {
-            var response = new ObtenerProductosResponse();
+            var productoViewModels = new List<ProductoViewModel>();
             var productosGuardados = ProductoRepository.GetAll().Where(x => x.Activo).ToList();
 
             foreach (var productoGuardado in productosGuardados)
-                response.Productos.Add(productoGuardado.ToViewModel());
+                productoViewModels.Add(productoGuardado.ToViewModel());
 
-            return response;
+            return productoViewModels;
+
         }
     }
 }

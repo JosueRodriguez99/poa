@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
-using Application.Poa.Requests;
+using Application.Poa.Dto;
 using Application.Poa.Services;
-using Application.Poa.ViewModels;
 using Presentation.Models.Poa;
 
 namespace Presentation.Controllers
@@ -24,18 +23,15 @@ namespace Presentation.Controllers
         // GET: /Productos/
         public ActionResult Index()
         {
-            var response = _productoService.ObtenerProductos();
-            var pageView = new IndexProductoPageView();
-            pageView.ProductoViewModels = response.Productos;
-            return View(pageView);
+            var productos = _productoService.ObtenerProductos();
+            return View(productos);
         }
 
         // GET: /Productos/Create
         public ActionResult Create()
         {
-            var response = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
-            var pageView = new CreateProductoPageView {ProgramaEstrategicoViewModels = response.ProgramasEstrategicos};
-            return View(pageView);
+            var programasEstrategicos = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
+            return View(programasEstrategicos);
         }
 
         // POST: /Productos/Create
@@ -44,36 +40,27 @@ namespace Presentation.Controllers
         {
             try
             {
-                var request = new CrearProductoRequest();
-                var viewModel = new ProductoViewModel
-                {
-                    Codigo = collection["Codigo"],
-                    Descripcion = collection["Descripcion"],
-                    Estado = (collection["Activo"] == "on") ? "Activo" : "Inactivo"
-                };
-                request.ProductoViewModel = viewModel;
-                request.ProgramaEstrategicoId = Convert.ToInt32(collection["ProgramaEstrategicoId"]);
-                _productoService.CrearProducto(request);
+                var dto = new ProductoDto();
+                dto.Codigo = collection["Codigo"];
+                dto.Descripcion = collection["Descripcion"];
+                dto.ProgramaEstrategicoId = Convert.ToInt32(collection["ProgramaEstrategicoId"]);
+                dto.Activo = collection["Activo"] == "on";
+                _productoService.CrearProducto(dto);
                 return RedirectToAction("Index");
             }
             catch
             {
-                var response = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
-                var pageView = new CreateProductoPageView { ProgramaEstrategicoViewModels = response.ProgramasEstrategicos };
-                return View(pageView);
+                var programasEstrategicos = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
+                return View(programasEstrategicos);
             }
         }
 
         // GET: /Productos/Edit/5
         public ActionResult Edit(int id)
         {
-            var programaEstrategicoResponse = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
-            var productoResponse = _productoService.ObtenerProductoPorId(id);
-            var pageView = new EditProductoPageView
-            {
-                ProgramaEstrategicoViewModels = programaEstrategicoResponse.ProgramasEstrategicos,
-                ProductoViewModel = productoResponse.ProductoViewModel
-            };
+            var programasEstrategicos = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
+            var producto = _productoService.ObtenerProductoPorId(id);
+            var pageView = new EditProductoPageView(programasEstrategicos, producto);
             return View(pageView);
         }
 
@@ -83,27 +70,20 @@ namespace Presentation.Controllers
         {
             try
             {
-                var viewModel = new ProductoViewModel
-                {
-                    Codigo = collection["Codigo"],
-                    Descripcion = collection["Descripcion"],
-                    Estado = (collection["Activo"] == "on") ? "Activo" : "Inactivo"
-                };
-                var request = new ActualizarProductoRequest();
-                request.ProductoViewModel = viewModel;
-                request.ProgramaEstrategicoId = Convert.ToInt32(collection["ProgramaEstrategicoId"]);
-                _productoService.ActualizarProducto(request);
+                var dto = new ProductoDto();
+                dto.Id = id;
+                dto.Codigo = collection["Codigo"];
+                dto.Descripcion = collection["Descripcion"];
+                dto.ProgramaEstrategicoId = Convert.ToInt32(collection["ProgramaEstrategicoId"]);
+                dto.Activo = collection["Activo"] == "on";
+                _productoService.CrearProducto(dto);
                 return RedirectToAction("Index");
             }
             catch
             {
-                var programaEstrategicoResponse = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
-                var productoResponse = _productoService.ObtenerProductoPorId(id);
-                var pageView = new EditProductoPageView
-                {
-                    ProgramaEstrategicoViewModels = programaEstrategicoResponse.ProgramasEstrategicos,
-                    ProductoViewModel = productoResponse.ProductoViewModel
-                };
+                var programasEstrategicos = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
+                var producto = _productoService.ObtenerProductoPorId(id);
+                var pageView = new EditProductoPageView(programasEstrategicos, producto);
                 return View(pageView);
             }
         }
@@ -111,9 +91,7 @@ namespace Presentation.Controllers
         // GET: /Productos/Delete/5
         public ActionResult Delete(int id)
         {
-            var request = new EliminarProductoRequest();
-            request.ProductoId = id;
-            _productoService.EliminarProducto(request);
+            _productoService.EliminarProducto(id);
             return RedirectToAction("Index");
         }
 

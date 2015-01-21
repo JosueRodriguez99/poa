@@ -30,7 +30,7 @@ namespace Application.Institucion.Services
             dependencia.Nombre = request.Nombre;
             dependencia.Responsable = _usuarioRepository.Get(request.ResponsableId);
             dependencia.Analista = _usuarioRepository.Get(request.AnalistaId);
-            dependencia.Reporta = _dependenciaRepository.Get(request.DependenciaReportaId);
+            dependencia.Reporta = _dependenciaRepository.Get(request.ReportaId);
             dependencia.Activo = request.Activo;
             _dependenciaRepository.Insert(dependencia);
         }
@@ -44,7 +44,7 @@ namespace Application.Institucion.Services
             dependencia.Nombre = request.Nombre;
             dependencia.Responsable = _usuarioRepository.Get(request.ResponsableId);
             dependencia.Analista = _usuarioRepository.Get(request.AnalistaId);
-            dependencia.Reporta = _dependenciaRepository.Get(request.DependenciaReportaId);
+            dependencia.Reporta = _dependenciaRepository.Get(request.ReportaId);
             dependencia.Activo = request.Activo;
             _dependenciaRepository.Update(dependencia);
         }
@@ -52,6 +52,11 @@ namespace Application.Institucion.Services
         public void EliminarDependencia(int id)
         {
             _dependenciaRepository.Delete(id);
+        }
+
+        public DependenciaViewModel ObtenerPorId(int id)
+        {
+            return _dependenciaRepository.Get(id).ToViewModel();
         }
 
         [UnitOfWork]

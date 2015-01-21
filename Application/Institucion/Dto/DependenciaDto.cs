@@ -6,7 +6,7 @@
         public string Nombre { get; set; }
         public int ResponsableId { get; set; }
         public int AnalistaId { get; set; }
-        public int DependenciaReportaId { get; set; }
+        public int ReportaId { get; set; }
         public bool Activo { get; set; }
     }
 }
