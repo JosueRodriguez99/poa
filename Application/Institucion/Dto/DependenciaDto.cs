@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Institucion.Dto
+﻿namespace Application.Institucion.Dto
 {
-    class DependenciaDto
+    public class DependenciaDto
     {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int ResponsableId { get; set; }
+        public int AnalistaId { get; set; }
+        public int DependenciaReportaId { get; set; }
+        public bool Activo { get; set; }
     }
 }

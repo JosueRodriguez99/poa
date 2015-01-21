@@ -41,11 +41,14 @@
   <ItemGroup>
     <Compile Include="Institucion\Dto\DependenciaDto.cs" />
     <Compile Include="Institucion\Dto\UsuarioDto.cs" />
+    <Compile Include="Institucion\Mappers\DependenciaMapper.cs" />
     <Compile Include="Institucion\Mappers\UsuarioMapper.cs" />
     <Compile Include="Institucion\Services\DependenciaService.cs" />
     <Compile Include="Institucion\Services\UsuarioService.cs" />
     <Compile Include="Institucion\Services\IDependenciaService.cs" />
     <Compile Include="Institucion\Services\IUsuarioService.cs" />
+    <Compile Include="Institucion\ViewModels\DependenciaViewModel.cs" />
+    <Compile Include="Institucion\ViewModels\UsuarioViewModel.cs" />
     <Compile Include="Poa\MapperExtensionMethods\ActividadExtensionMethods.cs" />
     <Compile Include="Poa\MapperExtensionMethods\ConceptoPresupuestoExtensionMethods.cs" />
     <Compile Include="Poa\MapperExtensionMethods\PoaExtensionMethods.cs" />

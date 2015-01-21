@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Application.Institucion.Dto;
+using Application.Institucion.ViewModels;
 
 namespace Application.Institucion.Services
 {
@@ -9,9 +10,9 @@ namespace Application.Institucion.Services
         void ActualizarUsuario(UsuarioDto request);
         void EliminarUsuario(int id);
         UsuarioDto ObtenerUsuarioPorId(int id);
-        List<UsuarioDto> ObtenerJefes();
-        List<UsuarioDto> ObtenerAnalistas();
-        List<UsuarioDto> ObtenerUsuarios();
-        List<UsuarioDto> ObtenerUsuariosActivos();
+        List<UsuarioViewModel> ObtenerJefes();
+        List<UsuarioViewModel> ObtenerAnalistas();
+        List<UsuarioViewModel> ObtenerUsuarios();
+        List<UsuarioViewModel> ObtenerUsuariosActivos();
     }
 }

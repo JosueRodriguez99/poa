@@ -1,14 +1,15 @@
-﻿using Application.Institucion.Requests;
-using Application.Institucion.Responses;
+﻿using System.Collections.Generic;
+using Application.Institucion.Dto;
+using Application.Institucion.ViewModels;
 
 namespace Application.Institucion.Services
 {
     public interface IDependenciaService
     {
-        void CrearDependencia(CrearDependenciaRequest request);
-        void ActualizarDependencia(ActualizarDependenciaRequest request);
-        void EliminarDependencia(EliminarDependenciaRequest request);
-        ObtenerDependenciasResponse ObtenerDependencias();
-        ObtenerDependenciasResponse ObtenerDependenciasActivas();
+        void CrearDependencia(DependenciaDto request);
+        void ActualizarDependencia(DependenciaDto request);
+        void EliminarDependencia(int id);
+        List<DependenciaViewModel> ObtenerDependencias();
+        List<DependenciaViewModel> ObtenerDependenciasActivas();
     }
 }

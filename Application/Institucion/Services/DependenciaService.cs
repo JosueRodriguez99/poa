@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Application.Institucion.MapperExtensionMethods;
-using Application.Institucion.Requests;
-using Application.Institucion.Responses;
-using Application.Institucion.ViewModel;
+using Application.Institucion.Dto;
+using Application.Institucion.Mappers;
+using Application.Institucion.ViewModels;
 using Domain.Institucion;
 using System;
 using Infrastructure.NHibernate;
@@ -23,30 +22,40 @@ namespace Application.Institucion.Services
             _usuarioRepository = usuarioRepository;
         }
 
-        public void CrearDependencia(CrearDependenciaRequest request)
+        public void CrearDependencia(DependenciaDto request)
         {
             if (request == null) throw new ArgumentNullException("request");
-            var dependencia = request.ViewModel.ToEntity();
+
+            var dependencia = new Dependencia();
+            dependencia.Nombre = request.Nombre;
             dependencia.Responsable = _usuarioRepository.Get(request.ResponsableId);
             dependencia.Analista = _usuarioRepository.Get(request.AnalistaId);
-            if (request.ReportaId != 0) dependencia.Reporta = _dependenciaRepository.Get(request.ReportaId);
+            dependencia.Reporta = _dependenciaRepository.Get(request.DependenciaReportaId);
+            dependencia.Activo = request.Activo;
             _dependenciaRepository.Insert(dependencia);
         }
 
-        public void ActualizarDependencia(ActualizarDependenciaRequest request)
+        public void ActualizarDependencia(DependenciaDto request)
         {
             if (request == null) throw new ArgumentNullException("request");
-            _dependenciaRepository.Update(request.ViewModel.ToEntity());
+            
+            var dependencia = new Dependencia();
+            dependencia.Id = request.Id;
+            dependencia.Nombre = request.Nombre;
+            dependencia.Responsable = _usuarioRepository.Get(request.ResponsableId);
+            dependencia.Analista = _usuarioRepository.Get(request.AnalistaId);
+            dependencia.Reporta = _dependenciaRepository.Get(request.DependenciaReportaId);
+            dependencia.Activo = request.Activo;
+            _dependenciaRepository.Update(dependencia);
         }
 
-        public void EliminarDependencia(EliminarDependenciaRequest request)
+        public void EliminarDependencia(int id)
         {
-            if (request == null) throw new ArgumentNullException("request");
-            _dependenciaRepository.Delete(request.Id);
+            _dependenciaRepository.Delete(id);
         }
 
         [UnitOfWork]
-        public ObtenerDependenciasResponse ObtenerDependencias()
+        public List<DependenciaViewModel> ObtenerDependencias()
         {
             var dependenciaViewModels = new List<DependenciaViewModel>();
             var dependencias = _dependenciaRepository.GetAll().ToList();
@@ -54,11 +63,11 @@ namespace Application.Institucion.Services
             foreach (var dependencia in dependencias)
                 dependenciaViewModels.Add(dependencia.ToViewModel());
 
-            return new ObtenerDependenciasResponse(dependenciaViewModels);
+            return dependenciaViewModels;
         }
 
         [UnitOfWork]
-        public ObtenerDependenciasResponse ObtenerDependenciasActivas()
+        public List<DependenciaViewModel> ObtenerDependenciasActivas()
         {
             var dependenciaViewModels = new List<DependenciaViewModel>();
             var dependencias = _dependenciaRepository.GetAll().Where(x => x.Activo).ToList();
@@ -66,7 +75,7 @@ namespace Application.Institucion.Services
             foreach (var dependencia in dependencias)
                 dependenciaViewModels.Add(dependencia.ToViewModel());
 
-            return new ObtenerDependenciasResponse(dependenciaViewModels);
+            return dependenciaViewModels;
         }
     }
 }

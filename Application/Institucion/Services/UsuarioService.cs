@@ -2,6 +2,7 @@
 using System.Linq;
 using Application.Institucion.Dto;
 using Application.Institucion.Mappers;
+using Application.Institucion.ViewModels;
 using Domain.Institucion;
 using System;
 using Infrastructure.NHibernate;
@@ -42,51 +43,51 @@ namespace Application.Institucion.Services
         }
 
         [UnitOfWork]
-        public List<UsuarioDto> ObtenerJefes()
+        public List<UsuarioViewModel> ObtenerJefes()
         {
-            var usuariosDto = new List<UsuarioDto>();
+            var usuarioViewModels = new List<UsuarioViewModel>();
             var usuarios = _repository.GetAll().Where(x => x.RolUsuario == RolUsuario.Jefe).ToList();
 
             foreach (var usuario in usuarios)
-                usuariosDto.Add(usuario.ToUsuarioDto());
+                usuarioViewModels.Add(usuario.ToViewModel());
 
-            return usuariosDto;
+            return usuarioViewModels;
         }
 
         [UnitOfWork]
-        public List<UsuarioDto> ObtenerAnalistas()
+        public List<UsuarioViewModel> ObtenerAnalistas()
         {
-            var usuariosDto = new List<UsuarioDto>();
+            var usuarioViewModels = new List<UsuarioViewModel>();
             var usuarios = _repository.GetAll().Where(x => x.RolUsuario == RolUsuario.Analista).ToList();
 
             foreach (var usuario in usuarios)
-                usuariosDto.Add(usuario.ToUsuarioDto());
+                usuarioViewModels.Add(usuario.ToViewModel());
 
-            return usuariosDto;
+            return usuarioViewModels;
         }
 
         [UnitOfWork]
-        public List<UsuarioDto> ObtenerUsuarios()
+        public List<UsuarioViewModel> ObtenerUsuarios()
         {
-            var usuariosDto = new List<UsuarioDto>();
+            var usuarioViewModels = new List<UsuarioViewModel>();
             var usuarios = _repository.GetAll().ToList();
 
             foreach (var usuario in usuarios)
-                usuariosDto.Add(usuario.ToUsuarioDto());
+                usuarioViewModels.Add(usuario.ToViewModel());
 
-            return usuariosDto;
+            return usuarioViewModels;
         }
 
         [UnitOfWork]
-        public List<UsuarioDto> ObtenerUsuariosActivos()
+        public List<UsuarioViewModel> ObtenerUsuariosActivos()
         {
-            var usuariosDto = new List<UsuarioDto>();
+            var usuarioViewModels = new List<UsuarioViewModel>();
             var usuarios = _repository.GetAll().Where(x => x.Activo).ToList();
 
             foreach (var usuario in usuarios)
-                usuariosDto.Add(usuario.ToUsuarioDto());
+                usuarioViewModels.Add(usuario.ToViewModel());
 
-            return usuariosDto;
+            return usuarioViewModels;
         }
     }
 }
