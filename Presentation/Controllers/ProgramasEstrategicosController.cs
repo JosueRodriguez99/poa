@@ -30,14 +30,10 @@ namespace Presentation.Controllers
 
         // POST: /ProgramasEstrategicos/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ProgramaEstrategicoDto dto)
         {
             try
             {
-                var dto = new ProgramaEstrategicoDto();
-                dto.Nombre = collection["Nombre"];
-                dto.Descripcion = collection["Descripcion"];
-                dto.Activo = collection["Activo"] == "on";
                 _service.CrearProgramaEstrategico(dto);
                 return RedirectToAction("Index");
             }
