@@ -66,7 +66,6 @@ namespace Presentation.Controllers
                 dto.Activo = collection["Activo"] == "on";
                 _service.CrearProgramaEstrategico(dto);
                 return RedirectToAction("Index");
-                return RedirectToAction("Index");
             }
             catch
             {
