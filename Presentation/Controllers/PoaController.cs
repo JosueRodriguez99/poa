@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace Presentation.Controllers
 {
-    public class MatricesDeSeguimientoController : Controller
+    public class PoaController : Controller
     {
         //
-        // GET: /MatricesDeSeguimiento/
+        // GET: /Poa/
 
         public ActionResult Index()
         {
@@ -17,7 +17,7 @@ namespace Presentation.Controllers
         }
 
         //
-        // GET: /MatricesDeSeguimiento/Details/5
+        // GET: /Poa/Details/5
 
         public ActionResult Details(int id)
         {
@@ -25,7 +25,7 @@ namespace Presentation.Controllers
         }
 
         //
-        // GET: /MatricesDeSeguimiento/Create
+        // GET: /Poa/Create
 
         public ActionResult Create()
         {
@@ -33,7 +33,7 @@ namespace Presentation.Controllers
         }
 
         //
-        // POST: /MatricesDeSeguimiento/Create
+        // POST: /Poa/Create
 
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -51,7 +51,7 @@ namespace Presentation.Controllers
         }
 
         //
-        // GET: /MatricesDeSeguimiento/Edit/5
+        // GET: /Poa/Edit/5
 
         public ActionResult Edit(int id)
         {
@@ -59,7 +59,7 @@ namespace Presentation.Controllers
         }
 
         //
-        // POST: /MatricesDeSeguimiento/Edit/5
+        // POST: /Poa/Edit/5
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
@@ -77,7 +77,7 @@ namespace Presentation.Controllers
         }
 
         //
-        // GET: /MatricesDeSeguimiento/Delete/5
+        // GET: /Poa/Delete/5
 
         public ActionResult Delete(int id)
         {
@@ -85,7 +85,7 @@ namespace Presentation.Controllers
         }
 
         //
-        // POST: /MatricesDeSeguimiento/Delete/5
+        // POST: /Poa/Delete/5
 
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)

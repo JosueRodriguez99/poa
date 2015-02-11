@@ -17,7 +17,7 @@
         <!-- panel lateral -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#">@User.Identity.Name</a></li>
+                <li class="sidebar-brand"><a href="~/Home/Index">@User.Identity.Name</a></li>
                 <li>@Html.ActionLink("Programas Estratégicos", "Index", "ProgramasEstrategicos")</li>
                 <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
                 <li>@Html.ActionLink("Dependencias", "Index", "Dependencias")</li>
@@ -25,6 +25,7 @@
                 <li>@Html.ActionLink("Habilitar Envíos POAs", "Index", "HabilitarEnviosPoa")</li>
                 <li>@Html.ActionLink("POAs Recibidos", "Index", "PoasRecibidos")</li>
                 <li>@Html.ActionLink("Matrices de Seguimiento", "Index", "MatricesDeSeguimiento")</li>
+                <li>@Html.ActionLink("Matrices de Seguimiento", "Index", "MatrizDeSeguimiento")</li>
                 <li>@Html.ActionLink("Enlaces", "Index", "Enlaces")</li>
                 <li>@Html.ActionLink("POAs", "Index", "Poas")</li>
                 <li><a href="#">Cerrar Sesión</a></li>
@@ -33,20 +34,25 @@
         <!-- fin panel lateral -->
         <!-- contenido -->
         <div id="page-content-wrapper">
-            <div class="logo-dei"></div>
-            <h1>@ViewBag.Title</h1><br />
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo-dei"></div>
+                </div>
+                <div class="col-sm-7" >
+                    <h1 class="text-primary">@ViewBag.Title</h1>
+                </div>
+            </div>
             <button type="button" class="btn btn-default" id="menu-toggle">
                 <span class="glyphicon glyphicon-resize-horizontal"></span>
             </button>
             <!-- contenido que cambia -->
             @RenderBody()
             <!-- cierre de contenido que cambia -->
-        </div>
-        <div class="footer">
-            <div class="footer-a">
-                <strong>DIRECCION EJECUTIVA DE INGRESOS HONDURAS</strong>. Tegucigalpa M.D.C., Colonia Palmira, costado oeste de la Embajada Americana.
-                <br>
-                Tel: PBX (504)&nbsp; TGU: 2216-5858, &nbsp;SPS:2550-2250, CBA: 2442-2402
+            <div class="footer">
+                <div class="footer-a">
+                    <strong>DIRECCION EJECUTIVA DE INGRESOS HONDURAS</strong>. Tegucigalpa M.D.C., Colonia Palmira, costado oeste de la Embajada Americana.
+                    <br>Tel: PBX (504)&nbsp; TGU: 2216-5858, &nbsp;SPS:2550-2250, CBA: 2442-2402
+                </div>
             </div>
         </div>
         <!-- cierre del contenido -->

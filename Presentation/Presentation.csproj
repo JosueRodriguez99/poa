@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -150,6 +152,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MatricesDeSeguimientoController.cs" />
+    <Compile Include="Controllers\MatrizDeSeguimientoController.cs" />
     <Compile Include="Controllers\PoasController.cs" />
     <Compile Include="Controllers\PoasRecibidosController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
@@ -277,6 +280,33 @@
   <ItemGroup>
     <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Poas\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Poas\Actividad.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Poas\Tarea.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Poas\IndicadorActividad.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Poas\IndicadorDeTarea.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Poas\Presupuesto.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Enlaces\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MatrizDeSeguimiento\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MatrizDeSeguimiento\Create.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -305,6 +335,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

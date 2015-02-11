@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Presupuesto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="light-box-form">
+    
+    <form action="~/Poas/Presupuesto" method="POST">
+
+    <h1>Presupuesto</h1>
+
+        <div class="form-group">
+            <label>Servicios no personales:</label> 
+            <input name="ServiciosNoPersonales" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Materiales y servicios:</label> 
+            <input name="MaterialesYServicios" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>BienesCapitalizables:</label> 
+            <input name="BienesCapitalizables" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Transferencias:</label> 
+            <input name="Transferencias" type="text" class="form-control"/>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Guardar">   
+        <button class="btn btn-danger">Cerrar</button>
+    </form>
+</div>
