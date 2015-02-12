@@ -1,29 +1,31 @@
-
+h1
+{
+    text-align: center;
+}
 
 #menu-toggle{
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
 .footer{
+    margin-top:400px;
+    height:auto;
+    clear:both;
     background: #004B8D;
     padding: 10px;
-    margin: 0;
     color: #fff;
     font-weight: normal;
     font-size: 12px;
-    min-height: 16px;
 }
+
 .footer-a{
-    width: 950px;
-    padding: 3px 0 0 0;
-    margin: 0 auto;
     color: #fff;
     font-weight: normal;
     font-size: 12px;
-    min-height: 16px;
-    _height: 16px;
     text-align: center;
 }
+
 .logo-dei {
     width: 271px;
     background: url(../images/logoDei.png) 0 0 no-repeat;
@@ -36,7 +38,7 @@
 }
 
 #wrapper {
-    padding-left: 0;
+    min-height: 100%;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -68,9 +70,7 @@
 }
 
 #page-content-wrapper {
-    width: 100%;
-    padding: 15px;
-    margin: 0 auto 555px;
+    overflow:no-content ;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -142,7 +142,9 @@
     background: rgba(0, 0, 0, 0.5);
     height: 100%;
     width: 100%;
+    overflow:scroll;
 }
+
 .light-box-form form {
     background-color: #FFF;
     margin: auto auto;
@@ -151,6 +153,7 @@
     border-radius: 5px;
     border: 1px rgb(168,168,168) solid;
     margin-top: 100px;
+    overflow:scroll;
 }
 
 .form-control{
@@ -166,7 +169,9 @@
         border-radius: 0px;
     }
 }
+
 @media(min-width:768px) {
+
     #wrapper {
         padding-left: 250px;
     }
@@ -190,5 +195,5 @@
     #wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 0;
-    }   
+    }
 }

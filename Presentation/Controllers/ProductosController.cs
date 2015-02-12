@@ -36,15 +36,10 @@ namespace Presentation.Controllers
 
         // POST: /Productos/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ProductoDto dto)
         {
             try
             {
-                var dto = new ProductoDto();
-                dto.Codigo = collection["Codigo"];
-                dto.Descripcion = collection["Descripcion"];
-                dto.ProgramaEstrategicoId = Convert.ToInt32(collection["ProgramaEstrategicoId"]);
-                dto.Activo = collection["Activo"] == "on";
                 _productoService.CrearProducto(dto);
                 return RedirectToAction("Index");
             }
@@ -66,17 +61,12 @@ namespace Presentation.Controllers
 
         // POST: /Productos/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, ProductoDto dto)
         {
             try
             {
-                var dto = new ProductoDto();
                 dto.Id = id;
-                dto.Codigo = collection["Codigo"];
-                dto.Descripcion = collection["Descripcion"];
-                dto.ProgramaEstrategicoId = Convert.ToInt32(collection["ProgramaEstrategicoId"]);
-                dto.Activo = collection["Activo"] == "on";
-                _productoService.CrearProducto(dto);
+                _productoService.ActualizarProducto(dto);
                 return RedirectToAction("Index");
             }
             catch

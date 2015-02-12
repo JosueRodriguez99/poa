@@ -15,6 +15,7 @@ namespace Presentation.Controllers
         {
             if (service == null) throw new ArgumentNullException("service");
             if (usuario == null) throw new ArgumentNullException("usuario");
+
             _dependenciaService = service;
             _usuarioService = usuario;
         }
@@ -22,7 +23,6 @@ namespace Presentation.Controllers
         // GET: /Dependencias/
         public ActionResult Index()
         {
-
             var dependencias = _dependenciaService.ObtenerDependencias();
             return View(dependencias);
         }
@@ -39,16 +39,10 @@ namespace Presentation.Controllers
 
         // POST: /Dependencias/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(DependenciaDto dto)
         {
             try
             {
-                var dto = new DependenciaDto();
-                dto.Nombre = collection["Nombre"];
-                dto.ResponsableId = Convert.ToInt32(collection["ResponsableId"]);
-                dto.AnalistaId = Convert.ToInt32(collection["AnalistaId"]);
-                dto.ReportaId = Convert.ToInt32(collection["ReportaId"]);
-                dto.Activo = collection["Activo"] == "on";
                 _dependenciaService.CrearDependencia(dto);
                 return RedirectToAction("Index");
             }
@@ -75,17 +69,11 @@ namespace Presentation.Controllers
 
         // POST: /Dependencias/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, DependenciaDto dto)
         {
             try
             {
-                var dto = new DependenciaDto();
                 dto.Id = id;
-                dto.Nombre = collection["Nombre"];
-                dto.ResponsableId = Convert.ToInt32(collection["ResponsableId"]);
-                dto.AnalistaId = Convert.ToInt32(collection["AnalistaId"]);
-                dto.ReportaId = Convert.ToInt32(collection["ReportaId"]);
-                dto.Activo = collection["Activo"] == "on";
                 _dependenciaService.CrearDependencia(dto);
                 return RedirectToAction("Index");
             }

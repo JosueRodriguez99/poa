@@ -19,6 +19,7 @@ namespace Application.Poa.Mappers
         public static ProgramaEstrategicoViewModel ToViewModel(this ProgramaEstrategico programaEstrategico)
         {
             var viewModel = new ProgramaEstrategicoViewModel();
+            viewModel.Id = programaEstrategico.Id;
             viewModel.Nombre = programaEstrategico.Nombre;
             viewModel.Descripcion = programaEstrategico.Descripcion;
             viewModel.Estado = (programaEstrategico.Activo) ? "Activo" : "Inactivo";

@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="light-box-form">
+    
+    <form action="~/MatrizDeSeguimiento/Create" method="POST">
+
+    <h1>Detalles</h1>
+
+        <div class="form-group">
+            <label>Código producto: #</label> 
+        </div>
+
+        <div class="form-group">
+            <label>Número: #</label> 
+        </div>
+
+        <div class="form-group">
+            <label>Descripción:</label> 
+            <input name="Descripcion" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Programado:</label> 
+            <input name="Programado" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Ejecutado:</label> 
+            <input name="Ejecutado" type="text" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Observaciones:</label>
+            <textarea cols="40" rows="5" name="Observaciones" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="ArchivosAdjuntos"> Archivos adjuntos</label>
+            <input type="file" id="ArchivosAdjuntos" />
+            <p class="help-block">Solo subir archivos necesarios.</p>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Agregar</button>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Aceptar">   
+        <button class="btn btn-danger">Cancelar</button>
+    </form>
+</div>
+

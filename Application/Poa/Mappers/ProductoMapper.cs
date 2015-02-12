@@ -9,6 +9,7 @@ namespace Application.Poa.Mappers
         public static ProductoViewModel ToViewModel(this Producto producto)
         {
             var viewModel = new ProductoViewModel();
+            viewModel.Id = producto.Id;
             viewModel.Codigo = producto.Codigo;
             viewModel.Descripcion = producto.Descripcion;
             viewModel.ProgramaEstrategico = producto.ProgramaEstrategico.Nombre;

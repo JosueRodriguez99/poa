@@ -30,14 +30,10 @@ namespace Presentation.Controllers
 
         // POST: /Usuarios/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(UsuarioDto dto)
         {
             try
             {
-                var dto = new UsuarioDto();
-                dto.NombreUsuario = collection["Usuario"];
-                dto.Activo = (collection["Activo"] == "on");
-                dto.RolUsuario = Convert.ToInt32(collection["RolUsuarioId"]);   
                 _service.CrearUsuario(dto);
                 return RedirectToAction("Index");
             }
@@ -56,16 +52,12 @@ namespace Presentation.Controllers
 
         // POST: /Usuarios/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, UsuarioDto dto)
         {
             try
             {
-                var dto = new UsuarioDto();
                 dto.Id = id;
-                dto.NombreUsuario = collection["Usuario"];
-                dto.Activo = (collection["Activo"] == "on");
-                dto.RolUsuario = Convert.ToInt32(collection["RolUsuarioId"]);
-                _service.CrearUsuario(dto);
+                _service.ActualizarUsuario(dto);
                 return RedirectToAction("Index");
             }
             catch
@@ -79,7 +71,7 @@ namespace Presentation.Controllers
         public ActionResult Delete(int id)
         {
             _service.EliminarUsuario(id);
-            return View();
+            return RedirectToAction("Index");
         }
 
         // POST: /Usuarios/Delete/5
