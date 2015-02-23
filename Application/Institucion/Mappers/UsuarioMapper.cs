@@ -6,17 +6,7 @@ namespace Application.Institucion.Mappers
 {
     public static class UsuarioMapper
     {
-        public static UsuarioDto ToDto(this Usuario usuario)
-        {
-            var dto = new UsuarioDto();
-            dto.Id = usuario.Id;
-            dto.NombreUsuario = usuario.NombreUsuario;
-            dto.RolUsuario = dto.RolUsuario;
-            dto.Activo = usuario.Activo;
-            return dto;
-        }
-
-        public static Usuario ToUsuario(this UsuarioDto dto)
+        public static Usuario ToEntity(this UsuarioDto dto)
         {
             var usuario = new Usuario();
             usuario.Id = dto.Id;

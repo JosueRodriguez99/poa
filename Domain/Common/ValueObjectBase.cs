@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Common
 {
     public abstract class ValueObjectBase
     {
-        private List<BusinessRule> _brokenRules = new List<BusinessRule>();
-        
-        public ValueObjectBase() { }
+        private readonly List<BusinessRule> _brokenRules = new List<BusinessRule>();
 
         protected abstract void Validate();
 

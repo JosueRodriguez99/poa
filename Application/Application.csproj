@@ -50,6 +50,10 @@
     <Compile Include="Institucion\Services\IUsuarioService.cs" />
     <Compile Include="Institucion\ViewModels\DependenciaViewModel.cs" />
     <Compile Include="Institucion\ViewModels\UsuarioViewModel.cs" />
+    <Compile Include="Poa\Dto\ActividadDto.cs" />
+    <Compile Include="Poa\Dto\ConceptoPresupuestoDto.cs" />
+    <Compile Include="Poa\Dto\PoaDto.cs" />
+    <Compile Include="Poa\Dto\PresupuestoDto.cs" />
     <Compile Include="Poa\Dto\ProductoDto.cs" />
     <Compile Include="Poa\Dto\ProgramaEstrategicoDto.cs" />
     <Compile Include="Poa\Mappers\ActividadExtensionMethods.cs" />
