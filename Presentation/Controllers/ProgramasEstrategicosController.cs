@@ -50,21 +50,18 @@ namespace Presentation.Controllers
         // GET: /ProgramasEstrategicos/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var programaEstrategico = _service.ObtenerProgramaEstrategicoPorId(id);
+            return View(programaEstrategico);
         }
 
         // POST: /ProgramasEstrategicos/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, ProgramaEstrategicoDto dto)
         {
             try
             {
-                var dto = new ProgramaEstrategicoDto();
                 dto.Id = id;
-                dto.Nombre = collection["Nombre"];
-                dto.Descripcion = collection["Descripcion"];
-                dto.Activo = collection["Activo"] == "on";
-                _service.CrearProgramaEstrategico(dto);
+                _service.ActualizarProgramaEstrategico(dto);
                 return RedirectToAction("Index");
             }
             catch

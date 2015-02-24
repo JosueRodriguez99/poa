@@ -14,7 +14,7 @@ namespace Infrastructure.NHibernate
               //.Database(MsSqlConfiguration.MsSql2008.ConnectionString(@"Data Source = Michael-PC\SQLEXPRESS; Initial Catalog = SIP; user id = sa; password = 12345"))
               .Database(MsSqlConfiguration.MsSql2008.ConnectionString(@"Data Source = Rodolfo-PC\SQLEXPRESS; Initial Catalog = SIP; user id = sa; password = 12345"))
               .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ProgramaEstrategicoMap>())
-              .ExposeConfiguration(cfg => { new SchemaExport(cfg).Create(false, true); })
+              //.ExposeConfiguration(cfg => { new SchemaExport(cfg).Create(false, true); })
               .BuildSessionFactory();
         }
     }

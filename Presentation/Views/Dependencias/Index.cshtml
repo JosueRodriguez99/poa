@@ -9,20 +9,21 @@
         <tr><th>Nombre</th><th>Responsable</th><th>Reporta a</th><th>Analista</th><th>Estado</th><th>Acción</th></tr>
     </thead>
     <tbody>
-        <tr>
+        
             @foreach (var dependencia in Model)
             {
-                <td>@dependencia.Nombre</td>
-                <td>@dependencia.Responsable</td>
-                <td>@dependencia.Reporta</td>
-                <td>@dependencia.Analista</td>
-                <td>@dependencia.Estado</td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { dependencia.Id })/
-                    @Html.ActionLink("Eliminar", "Delete", new { dependencia.Id })
-                </td>   
+                <tr>
+                    <td>@dependencia.Nombre</td>
+                    <td>@dependencia.Responsable</td>
+                    <td>@dependencia.Reporta</td>
+                    <td>@dependencia.Analista</td>
+                    <td>@dependencia.Estado</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { dependencia.Id })/
+                        @Html.ActionLink("Eliminar", "Delete", new { dependencia.Id })
+                    </td>
+                </tr>   
             }
-        </tr>    
     </tbody>
 </table>
 

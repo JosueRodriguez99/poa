@@ -10,6 +10,7 @@ namespace Presentation.Models.Poa
         {
             if (programasEstrategico == null) throw new ArgumentNullException("programasEstrategico");
             if (producto == null) throw new ArgumentNullException("producto");
+
             Producto = producto;
             ProgramasEstrategico = programasEstrategico;
         }

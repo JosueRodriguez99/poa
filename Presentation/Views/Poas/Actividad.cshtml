@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Actividad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="light-box-form">
+    
+    <form action="~/Poas/Actividad" method="POST">
+
+    <h1>Actividad - Nueva</h1>
+
+        <div class="form-group">
+            <label>Descripción:</label>
+            <textarea cols="40" rows="5" name="Descripcion" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Producto:</label>
+            <select class="form-control" name="ProductoId">
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Unidad de medida:</label>
+            <select class="form-control" name="UnidadDeMedidaId">
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Indicador:</label> 
+            <input name="Indicador" type="text" class="form-control"/>
+        </div>
+   
+        <div class="form-group">
+            <label>Meta:</label> 
+            <input name="Meta" type="text" class="form-control"/>
+        </div>
+    
+        <div class="form-group">
+            <label>Medio de verificación:</label> 
+            <input name="Medio de verificación" type="text" class="form-control"/>
+        </div>
+   
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="Suma" value="true" checked>Suma
+        </label>
+    </div>
+
+<input type="submit" class="btn btn-primary" value="Guardar">   
+<button class="btn btn-danger">Cerrar</button>
+        </form>
+</div>

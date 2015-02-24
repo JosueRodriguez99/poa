@@ -18,7 +18,7 @@ namespace Application.Institucion.Mappers
             var viewModel = new DependenciaViewModel();
             viewModel.Id = dependencia.Id;
             viewModel.Nombre = dependencia.Nombre;
-            viewModel.Reporta = dependencia.Reporta.Nombre;
+            if (dependencia.Reporta != null) viewModel.Reporta = dependencia.Reporta.Nombre;
             viewModel.Responsable = dependencia.Responsable.NombreUsuario;
             viewModel.Analista = dependencia.Analista.NombreUsuario;
             viewModel.Estado = (dependencia.Activo) ? "Activo" : "Inactivo";

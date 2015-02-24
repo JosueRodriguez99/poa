@@ -8,12 +8,12 @@
         
         <div class="form-group">
             <label>Usuario:</label>
-            <input name="Usuario" type="text" class="form-control"/>
+            <input name="NombreUsuario" type="text" class="form-control"/>
         </div>
 
         <div class="form-group">
             <label>Rol de usuario:</label>
-            <select class="form-control" name="RolUsuarioId">
+            <select class="form-control" name="RolUsuario">
                 <option value="1">Supervisor</option>
                 <option value="2">Analista</option>
                 <option value="3">Jefe</option>
@@ -21,7 +21,9 @@
         </div>
 
         <div class="checkbox">
-            <label><input type="checkbox" name="Activo" checked="true">Activo</label>
+            <label>
+                <input type="checkbox" name="Activo" value="true" checked>Activo
+            </label>
         </div>
 
         <input type="submit" class="btn btn-primary" value="Guardar">
