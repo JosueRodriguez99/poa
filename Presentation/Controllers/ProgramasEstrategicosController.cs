@@ -45,8 +45,7 @@ namespace Presentation.Controllers
             catch
             {
                 return View();
-            }   
-            
+            }             
         }
 
         // GET: /ProgramasEstrategicos/Edit/5
