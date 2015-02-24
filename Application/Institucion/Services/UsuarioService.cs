@@ -22,14 +22,14 @@ namespace Application.Institucion.Services
         public void CrearUsuario(UsuarioDto request)
         {
             if (request == null) throw new ArgumentNullException("request");
-            _repository.Insert(request.ToUsuario());
+            _repository.Insert(request.ToEntity());
 
         }
 
         public void ActualizarUsuario(UsuarioDto request)
         {
             if (request == null) throw new ArgumentNullException("request");
-            _repository.Update(request.ToUsuario());
+            _repository.Update(request.ToEntity());
         }
 
         public void EliminarUsuario(int id)

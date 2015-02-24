@@ -30,7 +30,7 @@ namespace Presentation.Controllers
 
         // POST: /ProgramasEstrategicos/Create
         [HttpPost]
-        public ActionResult Create(ProgramaEstrategicoDto dto)
+        public ActionResult Create(FormCollection requesCollection)
         {
             if (!ModelState.IsValid)
             {
@@ -39,6 +39,10 @@ namespace Presentation.Controllers
 
             try
             {
+                var dto = new ProgramaEstrategicoDto();
+                dto.Nombre = requesCollection["Nombre"];
+                dto.Descripcion = requesCollection["Descripcion"];
+                dto.Activo = requesCollection["Activo"] == "1";
                 _service.CrearProgramaEstrategico(dto);
                 return RedirectToAction("Index");
             }
