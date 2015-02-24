@@ -9,14 +9,12 @@ h1
 }
 
 .footer{
-    margin-top:400px;
-    height:auto;
-    clear:both;
+    margin-top: 50px;
+    bottom: 0;
+    width: 100%;
     background: #004B8D;
     padding: 10px;
-    color: #fff;
-    font-weight: normal;
-    font-size: 12px;
+    
 }
 
 .footer-a{
@@ -153,7 +151,7 @@ h1
     border-radius: 5px;
     border: 1px rgb(168,168,168) solid;
     margin-top: 100px;
-    overflow:scroll;
+    overflow:visible;
 }
 
 .form-control{
@@ -196,4 +194,9 @@ h1
         position: relative;
         margin-right: 0;
     }
+
+    .footer {
+        margin-top: 100px;
+    }
+
 }

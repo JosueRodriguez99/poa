@@ -8,36 +8,42 @@
 
 <div class="light-box-form">
     
-    <form action="~/ProgramasEstrategicos/Edit/@producto.Id" method="POST">
+    <form action="~/Productos/Edit/@producto.Id" method="POST">
+        <fieldset>
+
+            <legend>Producto</legend>
         
-        <div class="form-group">
-            <label>Código:</label>
-            <input name="Codigo" type="text" class="form-control" value="@producto.Codigo"/>
-        </div>
+            <div class="form-group">
+                @Html.Label("Código:")
+                <input name="Codigo" type="text" class="form-control" value="@producto.Codigo"/>
+                @Html.ValidationMessage("Codigo")
+            </div>
 
-        <div class="form-group">
-            <label>Descripción:</label>
-            <textarea name="Descripcion" class="form-control">@producto.Descripcion</textarea>
-        </div>
+            <div class="form-group">
+                @Html.Label("Descripción:")
+                <textarea name="Descripcion" class="form-control">@producto.Descripcion</textarea>
+                @Html.ValidationMessage("Descripcion")
+            </div>
 
-        <div class="form-group">
-            <label>Programa Estrategico:</label>
-            <select class="form-control" name="ProgramaEstrategicoId">
-            @foreach (var programaEstrategico in programasEstrategicos)
-            {
-                <option value="@programaEstrategico.Id">@programaEstrategico.Nombre</option>
-            }
-            </select>
-        </div>
+            <div class="form-group">
+                @Html.Label("Programa estratégico:")
+                <select class="form-control" name="ProgramaEstrategicoId">
+                    @foreach (var programaEstrategico in programasEstrategicos)
+                    {
+                        <option value="@programaEstrategico.Id">@programaEstrategico.Nombre</option>
+                    }
+                </select>
+                @Html.ValidationMessage("ProgramaEstrategicoId")
+            </div>
 
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="Activo" checked>Activo
-            </label>
-        </div>
+            @Html.CheckBox("Activo")
+            <b>
+                @Html.Label("Activo")<br/>
+            </b>
 
-        <input type="submit" class="btn btn-primary" value="Guardar">   
-        <button class="btn btn-danger">Cerrar</button>
+            <input type="submit" class="btn btn-primary" value="Guardar">   
+            <input type="button" class="btn btn-danger" value="Cerrar" onclick=" location.href='/Productos/Index'"/> 
+        </fieldset>
 
     </form>
 

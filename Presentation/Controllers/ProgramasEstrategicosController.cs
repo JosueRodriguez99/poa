@@ -32,6 +32,11 @@ namespace Presentation.Controllers
         [HttpPost]
         public ActionResult Create(ProgramaEstrategicoDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(dto);
+            }
+
             try
             {
                 _service.CrearProgramaEstrategico(dto);
@@ -40,7 +45,8 @@ namespace Presentation.Controllers
             catch
             {
                 return View();
-            }
+            }   
+            
         }
 
         // GET: /ProgramasEstrategicos/Edit/5
@@ -54,6 +60,11 @@ namespace Presentation.Controllers
         [HttpPost]
         public ActionResult Edit(int id, ProgramaEstrategicoDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(dto);
+            }
+
             try
             {
                 dto.Id = id;
@@ -69,16 +80,18 @@ namespace Presentation.Controllers
         // GET: /ProgramasEstrategicos/Delete/5
         public ActionResult Delete(int id)
         {
-            _service.EliminarProgramaEstrategico(id);
-            return RedirectToAction("Index");
+            var programaEstrategico = _service.ObtenerProgramaEstrategicoPorId(id);
+            return View(programaEstrategico);
         }
 
         // POST: /ProgramasEstrategicos/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, ProgramaEstrategicoDto dto)
         {
             try
             {
+                dto.Id = id;
+                _service.EliminarProgramaEstrategico(id);
                 return RedirectToAction("Index");
             }
             catch

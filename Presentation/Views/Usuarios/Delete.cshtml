@@ -1,4 +1,4 @@
-﻿@model Presentation.Models.Poa.DeleteUsuarioPageView
+﻿@model Application.Institucion.ViewModels.UsuarioViewModel
 
 @{
     ViewBag.Title = "Usuarios";
@@ -6,14 +6,14 @@
 
 <div class="light-box-form">
     
-    <form action="#" method="POST" style="width: 400px">
+    <form action="/Usuarios/Delete/@Model.Id" method="POST" style="width: 400px">
 
         <div class="form-group">
-            <label>¿Desea borrar el usuario ""?</label>
+            <label>¿Desea borrar el usuario "@Model.NombreUsuario"?</label>
         </div>
 
         <input type="submit" class="btn btn-primary" value="Aceptar">   
-        <button class="btn btn-danger">Cancelar</button>
+        <input type="button" class="btn btn-danger" value="Cerrar" onclick=" location.href='/Usuarios/Index'"/> 
 
     </form>
 

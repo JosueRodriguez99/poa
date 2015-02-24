@@ -20,8 +20,8 @@
                 <li class="sidebar-brand"><a href="~/Home/Index">@User.Identity.Name</a></li>
                 <li>@Html.ActionLink("Programas Estratégicos", "Index", "ProgramasEstrategicos")</li>
                 <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
-                <li>@Html.ActionLink("Dependencias", "Index", "Dependencias")</li>
                 <li>@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
+                <li>@Html.ActionLink("Dependencias", "Index", "Dependencias")</li>
                 <li>@Html.ActionLink("Habilitar Envíos POAs", "Index", "HabilitarEnviosPoa")</li>
                 <li>@Html.ActionLink("POAs Recibidos", "Index", "PoasRecibidos")</li>
                 <li>@Html.ActionLink("Matrices de Seguimiento", "Index", "MatricesDeSeguimiento")</li>
@@ -48,13 +48,14 @@
             <!-- contenido que cambia -->
             @RenderBody()
             <!-- cierre de contenido que cambia -->
-            <div class="footer">
+            <br/>
+             <div class="footer">
                 <div class="footer-a">
                     <strong>DIRECCION EJECUTIVA DE INGRESOS HONDURAS</strong>. Tegucigalpa M.D.C., Colonia Palmira, costado oeste de la Embajada Americana.
                     <br>Tel: PBX (504)&nbsp; TGU: 2216-5858, &nbsp;SPS:2550-2250, CBA: 2442-2402
                 </div>
             </div>
-        </div>
+        </div>       
         <!-- cierre del contenido -->
     </div>
     <!-- cierre del contenedor principal -->

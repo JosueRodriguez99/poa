@@ -38,6 +38,11 @@ namespace Presentation.Controllers
         [HttpPost]
         public ActionResult Create(ProductoDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(dto);
+            }
+
             try
             {
                 _productoService.CrearProducto(dto);
@@ -81,23 +86,28 @@ namespace Presentation.Controllers
         // GET: /Productos/Delete/5
         public ActionResult Delete(int id)
         {
-            _productoService.EliminarProducto(id);
-            return RedirectToAction("Index");
+            var programasEstrategicos = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
+            var producto = _productoService.ObtenerProductoPorId(id);
+            var pageView = new EditProductoPageView(programasEstrategicos, producto);
+            return View(pageView);
         }
 
         // POST: /Productos/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, ProductoDto dto)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                dto.Id = id;
+                _productoService.EliminarProducto(id);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                var programasEstrategicos = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
+                var producto = _productoService.ObtenerProductoPorId(id);
+                var pageView = new EditProductoPageView(programasEstrategicos, producto);
+                return View(pageView);
             }
         }
     }

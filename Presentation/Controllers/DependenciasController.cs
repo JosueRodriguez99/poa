@@ -41,6 +41,11 @@ namespace Presentation.Controllers
         [HttpPost]
         public ActionResult Create(DependenciaDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(dto);
+            }
+
             try
             {
                 _dependenciaService.CrearDependencia(dto);
@@ -54,6 +59,7 @@ namespace Presentation.Controllers
                 var pageView = new CreateDependenciaPageView(jefes, analistas, dependencias);
                 return View(pageView);
             }
+
         }
 
         // GET: /Dependencias/Edit/5
@@ -74,7 +80,7 @@ namespace Presentation.Controllers
             try
             {
                 dto.Id = id;
-                _dependenciaService.CrearDependencia(dto);
+                _dependenciaService.ActualizarDependencia(dto);
                 return RedirectToAction("Index");
             }
             catch
@@ -91,23 +97,32 @@ namespace Presentation.Controllers
         // GET: /Dependencias/Delete/5
         public ActionResult Delete(int id)
         {
-            _dependenciaService.EliminarDependencia(id);
-            return View();
+            var jefes = _usuarioService.ObtenerJefes();
+            var analistas = _usuarioService.ObtenerAnalistas();
+            var dependencias = _dependenciaService.ObtenerDependenciasActivas();
+            var dependencia = _dependenciaService.ObtenerPorId(id);
+            var pageView = new EditDependenciaPageView(jefes, analistas, dependencias, dependencia);
+            return View(pageView);
         }
 
         // POST: /Dependencias/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, DependenciaDto dto)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                dto.Id = id;
+                _dependenciaService.EliminarDependencia(id);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                var jefes = _usuarioService.ObtenerJefes();
+                var analistas = _usuarioService.ObtenerAnalistas();
+                var dependencias = _dependenciaService.ObtenerDependenciasActivas();
+                var dependencia = _dependenciaService.ObtenerPorId(id);
+                var pageView = new EditDependenciaPageView(jefes, analistas, dependencias, dependencia);
+                return View(pageView);
             }
         }
     }

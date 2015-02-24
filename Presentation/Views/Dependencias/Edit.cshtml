@@ -2,49 +2,53 @@
 
 @{
     ViewBag.Title = "Dependencias";
+    var jefes = Model.Jefes;
+    var analistas = Model.Analistas;
+    var dependencias = Model.Dependencias;
 }
-
 <div class="light-box-form">
     
-    <form action="~/Dependencias/Create" method="POST">
+    <form action="~/Dependencias/Edit/@Model.Dependencia.Id" method="POST">
         
         <div class="form-group">
             <label>Nombre:</label>
-            <input name="Codigo" type="text" class="form-control"/>
+            <input name="Nombre" type="text" class="form-control" value="@Model.Dependencia.Nombre"/>
         </div>
 
         <div class="form-group">
             <label>Responsable:</label>
-            <select class="form-control">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+            <select class="form-control" name="ResponsableId">
+                @foreach (var jefe in jefes)
+                {
+                    <option value="@jefe.Id">@jefe.NombreUsuario</option>    
+                }
             </select>
         </div>
         
         <div class="form-group">
             <label>Reporta a:</label>
-            <select class="form-control">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+            <select class="form-control" name="ReportaId">
+                @foreach (var dependencia in dependencias)
+                {
+                    <option value="@dependencia.Id">@dependencia.Nombre</option>    
+                }
             </select>
         </div>
         
         <div class="form-group">
             <label>Analista Asignado:</label>
-            <select class="form-control">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+            <select class="form-control" name="AnalistaId">
+                @foreach (var analista in analistas)
+                {
+                    <option value="@analista.Id">@analista.NombreUsuario</option>    
+                }
             </select>
         </div>
 
         <div class="checkbox">
-            <label><input type="checkbox" name="Activo" checked="true">Activo</label>
+            <label>
+                <input type="checkbox" name="Activo" value="true" checked>Activo
+            </label>
         </div>
 
         <input type="submit" class="btn btn-primary" value="Guardar">   

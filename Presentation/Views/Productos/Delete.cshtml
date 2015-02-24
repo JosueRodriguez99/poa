@@ -1,20 +1,19 @@
-﻿@model Presentation.Models.Poa.DeleteProductoPageView
+﻿@model  Presentation.Models.Poa.EditProductoPageView
 
 @{
     ViewBag.Title = "Productos";
-    var producto = Model.ProductoViewModel;
 }
 
 <div class="light-box-form">
     
-    <form action="#" method="POST" style="width: 400px">
+    <form action="/Productos/Delete/@Model.Producto.Id" method="POST" style="width: 400px">
 
         <div class="form-group">
-            <label>¿Desea borrar el producto @producto.Descripcion ?</label>
+            <label>¿Desea borrar el producto "@Model.Producto.Descripcion" ?</label>
         </div>
 
         <input type="submit" class="btn btn-primary" value="Aceptar">   
-        <button class="btn btn-danger">Cancelar</button>
+        <input type="button" class="btn btn-danger" value="Cerrar" onclick=" location.href='/Productos/Index'"/> 
 
     </form>
 

@@ -4,27 +4,32 @@
 
 <div class="light-box-form">
     
-    <form action="~/ProgramasEstrategicos/Create" method="POST">
-        
-        <div class="form-group">
-            <label>Nombre:</label>
-            <input name="Nombre" type="text" class="form-control"/>
-        </div>
+    @using (Html.BeginForm("Create", "ProgramasEstrategicos")){
+        <fieldset>
 
-        <div class="form-group">
-            <label>Descripción:</label>
-            <textarea cols="40" rows="5" name="Descripcion" class="form-control"></textarea>
-        </div>
+            <legend>Programa estratégico</legend>
+       
+            <div class="form-group">
+                @Html.Label("Nombre:")
+                <input name="Nombre" type="text" class="form-control"/>
+                @Html.ValidationMessage("Nombre")
+ 
+            </div>
 
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="Activo" value="true" checked>Activo
-            </label>
-        </div>
+            <div class="form-group">
+                @Html.Label("Descripción:")
+                <textarea cols="40" rows="5" name="Descripcion" class="form-control"></textarea>
+                @Html.ValidationMessage("Descripcion")
+            </div>
 
-        <input type="submit" class="btn btn-primary" value="Guardar">   
-        <button class="btn btn-danger">Cerrar</button>
+            @Html.CheckBox("Activo")
+            <b>
+                @Html.Label("Activo")<br/>
+            </b>
 
-    </form>
-
+            <input type="submit" class="btn btn-primary" value="Guardar"> 
+            <input type="button" class="btn btn-danger" value="Cerrar" onclick="location.href='Index'"/>  
+        </fieldset>
+    }
+    
 </div>

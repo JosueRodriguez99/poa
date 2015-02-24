@@ -8,51 +8,58 @@
 }
 
 <div class="light-box-form">
-    
-    <form action="~/Dependencias/Create" method="POST">
+     @using (Html.BeginForm("Create", "Dependencias")){
+         <fieldset>
+             
+             <legend>Dependencia</legend>
         
-        <div class="form-group">
-            <label>Nombre:</label>
-            <input name="Nombre" type="text" class="form-control"/>
-        </div>
+             <div class="form-group">
+                 @Html.Label("Nombre:")
+                 <input name="Nombre" type="text" class="form-control"/>
+                 @Html.ValidationMessage("Nombre")
+             </div>
 
-        <div class="form-group">
-            <label>Responsable:</label>
-            <select class="form-control" name="ResponsableId">
-                @foreach (var jefe in jefes)
-                {
-                    <option value="@jefe.Id">@jefe.NombreUsuario</option>    
-                }
-            </select>
-        </div>
+             <div class="form-group">
+                 @Html.Label("Responsable:")
+                 <select class="form-control" name="ResponsableId">
+                     @foreach (var jefe in jefes)
+                     {
+                         <option value="@jefe.Id">@jefe.NombreUsuario</option>    
+                     }
+                 </select>
+                 @Html.ValidationMessage("ResponsableId")
+             </div>
         
-        <div class="form-group">
-            <label>Reporta a:</label>
-            <select class="form-control" name="ReportaId">
-                @foreach (var dependencia in dependencias)
-                {
-                    <option value="@dependencia.Id">@dependencia.Nombre</option>    
-                }
-            </select>
-        </div>
+             <div class="form-group">
+                 @Html.Label("Reporta a:")
+                 <select class="form-control" name="ReportaId">
+                     @foreach (var dependencia in dependencias)
+                     {
+                         <option value="@dependencia.Id">@dependencia.Nombre</option>    
+                     }
+                 </select>
+                 @Html.ValidationMessage("ReportaId")
+             </div>
         
-        <div class="form-group">
-            <label>Analista Asignado:</label>
-            <select class="form-control" name="AnalistaId">
-                @foreach (var analista in analistas)
-                {
-                    <option value="@analista.Id">@analista.NombreUsuario</option>    
-                }
-            </select>
-        </div>
+             <div class="form-group">
+                 @Html.Label("Analista asignado:")
+                 <select class="form-control" name="AnalistaId">
+                     @foreach (var analista in analistas)
+                     {
+                         <option value="@analista.Id">@analista.NombreUsuario</option>    
+                     }
+                 </select>
+                 @Html.ValidationMessage("AnalistaId")
+             </div>
 
-        <div class="checkbox">
-            <label><input type="checkbox" name="Activo" checked="true">Activo</label>
-        </div>
+             @Html.CheckBox("Activo")
+             <b>
+                 @Html.Label("Activo")<br/>
+             </b>
 
-        <input type="submit" class="btn btn-primary" value="Guardar">   
-        <button class="btn btn-danger">Cerrar</button>
-
-    </form>
+             <input type="submit" class="btn btn-primary" value="Guardar">   
+             <input type="button" class="btn btn-danger" value="Cerrar" onclick="location.href='Index'"/>  
+         </fieldset>
+     }
 
 </div>

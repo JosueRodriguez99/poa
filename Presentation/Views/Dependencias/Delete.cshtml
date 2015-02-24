@@ -1,4 +1,4 @@
-﻿@model Presentation.Models.Poa.DeleteDependenciaPageView
+﻿@model Presentation.Models.Institucion.EditDependenciaPageView
 
 @{
     ViewBag.Title = "Dependencias";
@@ -6,14 +6,14 @@
 
 <div class="light-box-form">
     
-    <form action="#" method="POST" style="width: 400px">
+    <form action="/Dependencias/Delete/@Model.Dependencia.Id" method="POST" style="width: 400px">
 
         <div class="form-group">
-            <label>¿Desea borrar la dependencia " "?</label>
+            <label>¿Desea borrar la dependencia "@Model.Dependencia.Nombre"?</label>
         </div>
 
         <input type="submit" class="btn btn-primary" value="Aceptar">   
-        <button class="btn btn-danger">Cancelar</button>
+        <input type="button" class="btn btn-danger" value="Cerrar" onclick=" location.href='/Dependencias/Index'"/> 
 
     </form>
 

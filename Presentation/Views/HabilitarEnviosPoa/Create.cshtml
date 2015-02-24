@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Nueva Habilitación";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="light-box-form">
+    
+    @using (Html.BeginForm("Create", "HabilitarEnviosPoa")){
+ 
+        
+        <div class="form-group">
+            @Html.Label("Año")
+            <input name="Nombre" type="text" class="form-control"/>
+        </div>
+        
+        <div class="form-group">
+            @Html.Label("Fecha de Inicio")
+            <input name="FechaInicio" type="datetime" class="form-control"/>
+        </div>
+        
+        <div class="form-group">
+            @Html.Label("Fecha de Cierre")
+            <input name="FechaCierre" type="datetime" class="form-control"/>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Guardar"> 
+        <input type="button" class="btn btn-danger" value="Cerrar" onclick="location.href='Index'"/>  
+    }
+    
+</div>

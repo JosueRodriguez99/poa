@@ -32,6 +32,11 @@ namespace Presentation.Controllers
         [HttpPost]
         public ActionResult Create(UsuarioDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(dto);
+            }
+
             try
             {
                 _service.CrearUsuario(dto);
@@ -70,21 +75,24 @@ namespace Presentation.Controllers
         // GET: /Usuarios/Delete/5
         public ActionResult Delete(int id)
         {
-            _service.EliminarUsuario(id);
-            return RedirectToAction("Index");
+            var usuario = _service.ObtenerUsuarioPorId(id);
+            return View(usuario);
         }
 
         // POST: /Usuarios/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, UsuarioDto dto)
         {
             try
             {
+                dto.Id = id;
+                _service.EliminarUsuario(id);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                var usuario = _service.ObtenerUsuarioPorId(id);
+                return View(usuario);
             }
         }
     }

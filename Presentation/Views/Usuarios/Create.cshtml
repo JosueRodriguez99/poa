@@ -3,32 +3,34 @@
 }
 
 <div class="light-box-form">
-    
-    <form action="~/Usuarios/Create" method="POST">
+     @using (Html.BeginForm("Create", "Usuarios")){
+        <fieldset>
+
+            <legend>Usuario</legend>
         
-        <div class="form-group">
-            <label>Usuario:</label>
-            <input name="NombreUsuario" type="text" class="form-control"/>
-        </div>
+            <div class="form-group">
+                @Html.Label("Usuario:")
+                <input name="NombreUsuario" type="text" class="form-control"/>
+                @Html.ValidationMessage("NombreUsuario")
+            </div>
 
-        <div class="form-group">
-            <label>Rol de usuario:</label>
-            <select class="form-control" name="RolUsuario">
-                <option value="1">Supervisor</option>
-                <option value="2">Analista</option>
-                <option value="3">Jefe</option>
-            </select>
-        </div>
+            <div class="form-group">
+                @Html.Label("Rol del usuario:")
+                <select class="form-control" name="RolUsuario">
+                    <option value="1">Supervisor</option>
+                    <option value="2">Analista</option>
+                    <option value="3">Jefe</option>
+                </select>
+                @Html.ValidationMessage("RolUsuario")
+            </div>
 
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="Activo" value="true" checked>Activo
-            </label>
-        </div>
+            @Html.CheckBox("Activo")
+            <b>
+                @Html.Label("Activo")<br/>
+            </b>
 
-        <input type="submit" class="btn btn-primary" value="Guardar">
-        <button class="btn btn-danger">Cerrar</button>
-    
-    </form>
-
+            <input type="submit" class="btn btn-primary" value="Guardar">
+            <input type="button" class="btn btn-danger" value="Cerrar" onclick="location.href='Index'"/> 
+        </fieldset>   
+    }
 </div>
