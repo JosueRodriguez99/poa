@@ -32,6 +32,7 @@ namespace Presentation.Controllers
         [HttpPost]
         public ActionResult Create(UsuarioDto dto)
         {
+            //ModelState
             if (!ModelState.IsValid)
             {
                 return View(dto);
