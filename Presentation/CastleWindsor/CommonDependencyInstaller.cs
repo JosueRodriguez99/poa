@@ -76,6 +76,22 @@ namespace Presentation.CastleWindsor
             container
                 .Register(Component.For<NhUnitOfWorkInterceptor>()
                 .LifeStyle.Transient);
+
+            container
+                .Register(Component.For<AnalistaInterceptor>()
+                .LifeStyle.Transient);
+
+            container
+                .Register(Component.For<EnlaceInterceptor>()
+                .LifeStyle.Transient);
+
+            container
+                .Register(Component.For<JefeInterceptor>()
+                .LifeStyle.Transient);
+
+            container
+                .Register(Component.For<SupervisorInterceptor>()
+                .LifeStyle.Transient);
         }
 
         private static void Kernel_ComponentRegistered(string key, IHandler handler)

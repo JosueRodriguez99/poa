@@ -1,4 +1,5 @@
 ﻿using System;
+using Application.Institucion.ViewModels;
 using Castle.DynamicProxy;
 using Domain.Institucion;
 
@@ -8,9 +9,9 @@ namespace Presentation.CastleWindsor.Interceptors
     {
         public void Intercept(IInvocation invocation)
         {
-            var usuarioActual = (Usuario)System.Web.HttpContext.Current.Session["CurrentUSer"];
+            var usuarioActual = (UsuarioViewModel)System.Web.HttpContext.Current.Session["CurrentUSer"];
 
-            if (usuarioActual.RolUsuario == RolUsuario.Supervisor)
+            if (usuarioActual.RolUsuario == "Supervisor")
                 invocation.Proceed();
             else
                 throw new Exception("Sin autorizacion");

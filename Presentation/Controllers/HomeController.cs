@@ -15,7 +15,7 @@ namespace Presentation.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
-            System.Web.HttpContext.Current.Session["CurrentUSer"] = _usuarioService.ComprobarUsuario(User.Identity.Name.Split('\\'));
+            System.Web.HttpContext.Current.Session["CurrentUSer"] = _usuarioService.ComprobarUsuario(User.Identity.Name.Split('\\')[1]);
             return View();
         }
 
