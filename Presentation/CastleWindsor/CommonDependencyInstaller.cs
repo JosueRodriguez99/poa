@@ -12,6 +12,8 @@ using Infrastructure.NHibernate;
 using Infrastructure.Poa.Repositories;
 using NHibernate;
 using System.Web.Mvc;
+using Presentation.CastleWindsor.Attributes;
+using Presentation.CastleWindsor.Interceptors;
 
 namespace Presentation.CastleWindsor
 {
@@ -88,7 +90,27 @@ namespace Presentation.CastleWindsor
                 if (UnitOfWorkHelper.HasUnitOfWorkAttribute(method))
                 {
                     handler.ComponentModel.Interceptors.Add(new InterceptorReference(typeof(NhUnitOfWorkInterceptor)));
-                    return;
+                    //return;
+                }
+
+                if (method.IsDefined(typeof(AnalistaAttribute), true))
+                {
+                    handler.ComponentModel.Interceptors.Add(new InterceptorReference(typeof(AnalistaInterceptor)));
+                }
+
+                if (method.IsDefined(typeof(EnlaceAttribute), true))
+                {
+                    handler.ComponentModel.Interceptors.Add(new InterceptorReference(typeof(EnlaceInterceptor)));
+                }
+
+                if (method.IsDefined(typeof(JefeAttribute), true))
+                {
+                    handler.ComponentModel.Interceptors.Add(new InterceptorReference(typeof(JefeInterceptor)));
+                }
+
+                if (method.IsDefined(typeof(SupervisorAttribute), true))
+                {
+                    handler.ComponentModel.Interceptors.Add(new InterceptorReference(typeof(SupervisorInterceptor)));
                 }
             }
         }

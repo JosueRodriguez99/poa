@@ -56,9 +56,7 @@
     <Compile Include="Poa\Dto\PresupuestoDto.cs" />
     <Compile Include="Poa\Dto\ProductoDto.cs" />
     <Compile Include="Poa\Dto\ProgramaEstrategicoDto.cs" />
-    <Compile Include="Poa\Mappers\ActividadExtensionMethods.cs" />
-    <Compile Include="Poa\Mappers\ConceptoPresupuestoExtensionMethods.cs" />
-    <Compile Include="Poa\Mappers\PoaExtensionMethods.cs" />
+    <Compile Include="Poa\Mappers\PoaMapper.cs" />
     <Compile Include="Poa\Mappers\ProductoMapper.cs" />
     <Compile Include="Poa\Mappers\ProgramaEstrategicoMapper.cs" />
     <Compile Include="Poa\ViewModels\ActividadViewModel.cs" />
@@ -74,8 +72,6 @@
     <Compile Include="Poa\ViewModels\ProgramacionActividadViewModel.cs" />
     <Compile Include="Poa\ViewModels\ProgramacionTareaViewModel.cs" />
     <Compile Include="Poa\ViewModels\ProgramaEstrategicoViewModel.cs" />
-    <Compile Include="Poa\Services\ConceptoPresupuestoService.cs" />
-    <Compile Include="Poa\Services\IConceptoPresupuestoService.cs" />
     <Compile Include="Poa\Services\IPoaService.cs" />
     <Compile Include="Poa\Services\IProductoService.cs" />
     <Compile Include="Poa\Services\IProgramaEstrategicoService.cs" />

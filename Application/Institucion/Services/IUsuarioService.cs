@@ -10,6 +10,7 @@ namespace Application.Institucion.Services
         void ActualizarUsuario(UsuarioDto request);
         void EliminarUsuario(int id);
         UsuarioViewModel ObtenerUsuarioPorId(int id);
+        UsuarioViewModel ComprobarUsuario(string nombreUsuario);
         List<UsuarioViewModel> ObtenerJefes();
         List<UsuarioViewModel> ObtenerAnalistas();
         List<UsuarioViewModel> ObtenerUsuarios();

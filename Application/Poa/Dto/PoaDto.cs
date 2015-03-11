@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Poa.Dto
 {
-    class PoaDto
+    public class PoaDto
     {
+        public int Id { get; set; }
+        public int DependenciaId { get; set; }
     }
 }

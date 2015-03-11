@@ -1,4 +1,6 @@
 ﻿using System;
+using Application.Poa.Dto;
+using Application.Poa.Mappers;
 using Domain.Poa;
 
 namespace Application.Poa.Services
@@ -15,6 +17,13 @@ namespace Application.Poa.Services
 
             PoaRepository = repository;
             ConceptoPresupuestoRepository = conceptoPresupuestoRepository;
+        }
+
+        public void CrearPoa(PoaDto dto)
+        {
+            if (dto == null) throw new ArgumentNullException("dto");
+            var poa = dto.ToEntity();
+
         }
     }
 }

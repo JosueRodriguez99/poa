@@ -43,6 +43,14 @@ namespace Application.Institucion.Services
         }
 
         [UnitOfWork]
+        public UsuarioViewModel ComprobarUsuario(string nombreUsuario)
+        {
+            var usuarios = _repository.GetAll().Where(x => x.NombreUsuario == nombreUsuario).ToList();
+            if (usuarios.Count == 0) throw new Exception("Usuario no registrado en el sistema");
+            return usuarios[0].ToViewModel();
+        }
+
+        [UnitOfWork]
         public List<UsuarioViewModel> ObtenerJefes()
         {
             var usuarioViewModels = new List<UsuarioViewModel>();

@@ -142,7 +142,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="CastleWindsor\Attributes\AnalistaAttribute.cs" />
+    <Compile Include="CastleWindsor\Attributes\EnlaceAttribute.cs" />
+    <Compile Include="CastleWindsor\Attributes\JefeAttribute.cs" />
+    <Compile Include="CastleWindsor\Attributes\SupervisorAttribute.cs" />
     <Compile Include="CastleWindsor\CommonDependencyInstaller.cs" />
+    <Compile Include="CastleWindsor\Interceptors\AnalistaInterceptor.cs" />
+    <Compile Include="CastleWindsor\Interceptors\EnlaceInterceptor.cs" />
+    <Compile Include="CastleWindsor\Interceptors\JefeInterceptor.cs" />
+    <Compile Include="CastleWindsor\Interceptors\SupervisorInterceptor.cs" />
     <Compile Include="CastleWindsor\NhUnitOfWorkInterceptor.cs" />
     <Compile Include="CastleWindsor\UnitOfWorkHelper.cs" />
     <Compile Include="CastleWindsor\WindsorControllerFactory.cs" />

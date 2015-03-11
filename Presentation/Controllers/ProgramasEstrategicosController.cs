@@ -2,6 +2,7 @@
 using Application.Poa.Services;
 using System;
 using System.Web.Mvc;
+using Presentation.CastleWindsor.Attributes;
 
 namespace Presentation.Controllers
 {
@@ -16,6 +17,7 @@ namespace Presentation.Controllers
         }
 
         // GET: /ProgramasEstrategicos/
+        [Supervisor]
         public ActionResult Index()
         {
             var programasEstrategicos = _service.ObtenerProgramasEstrategicos();
@@ -23,20 +25,17 @@ namespace Presentation.Controllers
         }
 
         // GET: /ProgramasEstrategicos/Create
+        [Supervisor]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: /ProgramasEstrategicos/Create
+        [Supervisor]
         [HttpPost]
         public ActionResult Create(FormCollection requesCollection)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(dto);
-            }
-
             try
             {
                 var dto = new ProgramaEstrategicoDto();
@@ -53,6 +52,7 @@ namespace Presentation.Controllers
         }
 
         // GET: /ProgramasEstrategicos/Edit/5
+        [Supervisor]
         public ActionResult Edit(int id)
         {
             var programaEstrategico = _service.ObtenerProgramaEstrategicoPorId(id);
@@ -61,6 +61,7 @@ namespace Presentation.Controllers
 
         // POST: /ProgramasEstrategicos/Edit/5
         [HttpPost]
+        [Supervisor]
         public ActionResult Edit(int id, ProgramaEstrategicoDto dto)
         {
             if (!ModelState.IsValid)
@@ -81,6 +82,7 @@ namespace Presentation.Controllers
         }
 
         // GET: /ProgramasEstrategicos/Delete/5
+        [Supervisor]
         public ActionResult Delete(int id)
         {
             var programaEstrategico = _service.ObtenerProgramaEstrategicoPorId(id);
@@ -89,6 +91,7 @@ namespace Presentation.Controllers
 
         // POST: /ProgramasEstrategicos/Delete/5
         [HttpPost]
+        [Supervisor]
         public ActionResult Delete(int id, ProgramaEstrategicoDto dto)
         {
             try
