@@ -17,7 +17,6 @@ namespace Presentation.Controllers
         }
 
         // GET: /ProgramasEstrategicos/
-        [Supervisor]
         public ActionResult Index()
         {
             var programasEstrategicos = _service.ObtenerProgramasEstrategicos();
@@ -25,23 +24,17 @@ namespace Presentation.Controllers
         }
 
         // GET: /ProgramasEstrategicos/Create
-        [Supervisor]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: /ProgramasEstrategicos/Create
-        [Supervisor]
         [HttpPost]
-        public ActionResult Create(FormCollection requesCollection)
+        public ActionResult Create(ProgramaEstrategicoDto dto)
         {
             try
             {
-                var dto = new ProgramaEstrategicoDto();
-                dto.Nombre = requesCollection["Nombre"];
-                dto.Descripcion = requesCollection["Descripcion"];
-                dto.Activo = requesCollection["Activo"] == "1";
                 _service.CrearProgramaEstrategico(dto);
                 return RedirectToAction("Index");
             }
@@ -52,7 +45,6 @@ namespace Presentation.Controllers
         }
 
         // GET: /ProgramasEstrategicos/Edit/5
-        [Supervisor]
         public ActionResult Edit(int id)
         {
             var programaEstrategico = _service.ObtenerProgramaEstrategicoPorId(id);
@@ -61,13 +53,13 @@ namespace Presentation.Controllers
 
         // POST: /ProgramasEstrategicos/Edit/5
         [HttpPost]
-        [Supervisor]
         public ActionResult Edit(int id, ProgramaEstrategicoDto dto)
         {
+            /*
             if (!ModelState.IsValid)
             {
                 return View(dto);
-            }
+            }*/
 
             try
             {
@@ -82,7 +74,6 @@ namespace Presentation.Controllers
         }
 
         // GET: /ProgramasEstrategicos/Delete/5
-        [Supervisor]
         public ActionResult Delete(int id)
         {
             var programaEstrategico = _service.ObtenerProgramaEstrategicoPorId(id);
@@ -91,7 +82,6 @@ namespace Presentation.Controllers
 
         // POST: /ProgramasEstrategicos/Delete/5
         [HttpPost]
-        [Supervisor]
         public ActionResult Delete(int id, ProgramaEstrategicoDto dto)
         {
             try

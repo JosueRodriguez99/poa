@@ -6,14 +6,16 @@ namespace Domain.Institucion
 {
     public class Usuario : EntityBase<int>, IAggregateRoot
     {
-        public virtual RolUsuario RolUsuario { get; set; }
         public virtual string NombreUsuario { get; set; }
-        public virtual Dependencia Dependencia { get; set; }
-        public virtual IList<Dependencia> DependenciasAsignadas { get; set; }
+        public virtual RolUsuario RolUsuario { get; set; }
         public virtual bool Activo { get; set; }
+        public virtual IList<Dependencia> Dependencias { get; set; }
+        public virtual IList<Dependencia> DependenciasAsignadas { get; set; }
+        public virtual Dependencia DependenciaEnlace{ get; set; }
 
         public Usuario()
         {
+            Dependencias = new List<Dependencia>();
             DependenciasAsignadas = new List<Dependencia>();
         }
 

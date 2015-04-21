@@ -3,7 +3,7 @@ using System;
 
 namespace Domain.Poa
 {
-    public class Presupuesto : EntityBase<int>
+    public class Presupuesto : EntityBase<int>, IAggregateRoot
     {
         public virtual ConceptoPresupuesto ConceptoPresupuesto { get; set; }
         public virtual double Monto { get; set; }

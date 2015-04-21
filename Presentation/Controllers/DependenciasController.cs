@@ -41,10 +41,11 @@ namespace Presentation.Controllers
         [HttpPost]
         public ActionResult Create(DependenciaDto dto)
         {
+            /*
             if (!ModelState.IsValid)
             {
                 return View(dto);
-            }
+            }*/
 
             try
             {

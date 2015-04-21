@@ -154,15 +154,12 @@
     <Compile Include="CastleWindsor\NhUnitOfWorkInterceptor.cs" />
     <Compile Include="CastleWindsor\UnitOfWorkHelper.cs" />
     <Compile Include="CastleWindsor\WindsorControllerFactory.cs" />
+    <Compile Include="Controllers\ActividadesController.cs" />
+    <Compile Include="Controllers\DependenciaPoaController.cs" />
     <Compile Include="Controllers\DependenciasController.cs" />
-    <Compile Include="Controllers\EnlacesController.cs" />
-    <Compile Include="Controllers\HabilitarEnviosPoaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\MatricesDeSeguimientoController.cs" />
-    <Compile Include="Controllers\MatrizDeSeguimientoController.cs" />
     <Compile Include="Controllers\PoasController.cs" />
-    <Compile Include="Controllers\PoasRecibidosController.cs" />
+    <Compile Include="Controllers\PresupuestosController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\ProgramasEstrategicosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -171,6 +168,8 @@
     </Compile>
     <Compile Include="Models\Institucion\CreateDependenciaPageView.cs" />
     <Compile Include="Models\Institucion\EditDependenciaPageView.cs" />
+    <Compile Include="Models\Poa\ActividadPageView.cs" />
+    <Compile Include="Models\Poa\CreatePoaPageView.cs" />
     <Compile Include="Models\Poa\EditProductoPageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -317,6 +316,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\HabilitarEnviosPoa\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Poas\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Poas\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Actividades\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Presupuestos\Create.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

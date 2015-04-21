@@ -8,5 +8,6 @@ namespace Application.Poa.ViewModels
 {
     public class EjecucionActividadViewModel
     {
+        public int IndicadorActividadId { get; set; }
     }
 }

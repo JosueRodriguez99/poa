@@ -8,6 +8,6 @@ namespace Application.Poa.ViewModels
 {
     public class EjecucionTareaViewModel
     {
-
+        public int IndicadorTareaId { get; set; }
     }
 }

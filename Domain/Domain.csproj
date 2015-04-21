@@ -58,13 +58,16 @@
     <Compile Include="Poa\EjecucionMensual.cs" />
     <Compile Include="Poa\EjecucionTarea.cs" />
     <Compile Include="Poa\EstadoPoa.cs" />
+    <Compile Include="Poa\IActividadRepository.cs" />
     <Compile Include="Poa\IConceptoPresupuestoRepository.cs" />
     <Compile Include="Poa\Indicador.cs" />
     <Compile Include="Poa\IndicadorActividad.cs" />
     <Compile Include="Poa\IndicadorTarea.cs" />
     <Compile Include="Poa\IPoaRepository.cs" />
+    <Compile Include="Poa\IPresupuestoRepository.cs" />
     <Compile Include="Poa\IProductoRepository.cs" />
     <Compile Include="Poa\IProgramaEstrategicoRepository.cs" />
+    <Compile Include="Poa\ITareaRepository.cs" />
     <Compile Include="Poa\Poa.cs" />
     <Compile Include="Poa\Presupuesto.cs" />
     <Compile Include="Poa\Producto.cs" />

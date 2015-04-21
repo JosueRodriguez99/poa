@@ -10,6 +10,7 @@ namespace Application.Institucion.Services
         void ActualizarDependencia(DependenciaDto request);
         void EliminarDependencia(int id);
         DependenciaViewModel ObtenerPorId(int id);
+        List<DependenciaViewModel> ObtenerDependenciasPorJefe(int usuarioId); 
         List<DependenciaViewModel> ObtenerDependencias();
         List<DependenciaViewModel> ObtenerDependenciasActivas();
     }

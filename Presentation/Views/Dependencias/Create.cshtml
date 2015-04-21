@@ -10,9 +10,7 @@
 <div class="light-box-form">
      @using (Html.BeginForm("Create", "Dependencias")){
          <fieldset>
-             
              <legend>Dependencia</legend>
-        
              <div class="form-group">
                  @Html.Label("Nombre:")
                  <input name="Nombre" type="text" class="form-control"/>
@@ -33,9 +31,10 @@
              <div class="form-group">
                  @Html.Label("Reporta a:")
                  <select class="form-control" name="ReportaId">
+                     <option value="0">No reporta</option>
                      @foreach (var dependencia in dependencias)
                      {
-                         <option value="@dependencia.Id">@dependencia.Nombre</option>    
+                         <option value="@dependencia.Id">@dependencia.Nombre</option>
                      }
                  </select>
                  @Html.ValidationMessage("ReportaId")

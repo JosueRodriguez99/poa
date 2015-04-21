@@ -44,13 +44,13 @@ namespace Application.Poa.Services
         [UnitOfWork]
         public List<ProgramaEstrategicoViewModel> ObtenerProgramasEstrategicos()
         {
-            var programasEStrategicoViewModels = new List<ProgramaEstrategicoViewModel>();
+            var programasEstrategicoViewModels = new List<ProgramaEstrategicoViewModel>();
             var programasEstrategicos = _repository.GetAll().ToList();
 
             foreach (var programaEstrategico in programasEstrategicos)
-                programasEStrategicoViewModels.Add(programaEstrategico.ToViewModel());
+                programasEstrategicoViewModels.Add(programaEstrategico.ToViewModel());
 
-            return programasEStrategicoViewModels;
+            return programasEstrategicoViewModels;
         }
 
         [UnitOfWork]

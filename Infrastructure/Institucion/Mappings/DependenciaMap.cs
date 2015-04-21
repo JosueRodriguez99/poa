@@ -14,6 +14,15 @@ namespace Infrastructure.Institucion.Mappings
             References(x => x.Responsable, "Responsable_Usuario_Id").Not.LazyLoad();
             References(x => x.Reporta, "Reporta_Dependencia_Id").Not.LazyLoad();
             References(x => x.Analista, "Analista_Usuario_Id").Not.LazyLoad();
+            HasMany(x => x.Poas)
+                .KeyColumn("Dependencia_Id")
+                .Inverse()
+                .Cascade.All();
+            HasMany(x => x.Dependencias)
+                .Not.LazyLoad()
+                .KeyColumn("Reporta_Dependencia_Id")
+                .Inverse()
+                .Cascade.All();
         }
     }
 }

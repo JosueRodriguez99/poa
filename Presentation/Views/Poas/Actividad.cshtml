@@ -1,56 +1,103 @@
-﻿@{
+﻿@model List<Application.Poa.ViewModels.ProductoViewModel>
+
+@{
     ViewBag.Title = "Actividad";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="light-box-form">
     
-    <form action="~/Poas/Actividad" method="POST">
+    @using (Html.BeginForm("Actividad", "Poas")){
+        <fieldset>
+            <legend>Actividad</legend>
 
-    <h1>Actividad - Nueva</h1>
+            <div class="form-group">
+                @Html.Label("Descripción:")
+                <textarea cols="40" rows="5" name="Descripcion" class="form-control"></textarea>
+            </div>
 
-        <div class="form-group">
-            <label>Descripción:</label>
-            <textarea cols="40" rows="5" name="Descripcion" class="form-control"></textarea>
-        </div>
+            <div class="form-group">
+                @Html.Label("Producto:")
+                <select class="form-control" name="ProductoId">
+                    @foreach (var producto in Model)
+                    {
+                        <option value="@producto.Id">@producto.Descripcion</option>
+                    }
+                </select>
+            </div>
+            
+            <div class="form-group">
+                @Html.Label("Unidad de medida:")
+                <select class="form-control" name="UnidadDeMedidaId">
 
-        <div class="form-group">
-            <label>Producto:</label>
-            <select class="form-control" name="ProductoId">
+                </select>
+            </div>
 
-            </select>
-        </div>
+            <div class="form-group">
+                @Html.Label("Descripción del indicador:")
+                <input name="Indicador" type="text" class="form-control"/>
+            </div>
 
-        <div class="form-group">
-            <label>Unidad de medida:</label>
-            <select class="form-control" name="UnidadDeMedidaId">
+            <div class="form-group">
+                
+                <table class="table table-hover table-bordered">
+                    <thead>
+                    @Html.Label("Programación Mensual")
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                    </tr>
+                    <tr>
+                        <td><textarea name="Enero" class="form-control"></textarea></td>
+                        <td><textarea name="Febrero" class="form-control"></textarea></td>
+                        <td><textarea name="Marzo" class="form-control"></textarea></td>
+                        <td><textarea name="Abril" class="form-control"></textarea></td>
+                        <td><textarea name="Mayo" class="form-control"></textarea></td>
+                        <td><textarea name="Junio" class="form-control"></textarea></td>
+                        <td><textarea name="Julio" class="form-control"></textarea></td>
+                        <td><textarea name="Agosto" class="form-control"></textarea></td>
+                        <td><textarea name="Septiembre" class="form-control"></textarea></td>
+                        <td><textarea name="Octubre" class="form-control"></textarea></td>
+                        <td><textarea name="Noviembre" class="form-control"></textarea></td>
+                        <td><textarea name="Diciembre" class="form-control"></textarea></td>
+                    </tr>
 
-            </select>
-        </div>
+                    </tbody>
+                </table>
+            </div>
 
-        <div class="form-group">
-            <label>Indicador:</label> 
-            <input name="Indicador" type="text" class="form-control"/>
-        </div>
-   
-        <div class="form-group">
-            <label>Meta:</label> 
-            <input name="Meta" type="text" class="form-control"/>
-        </div>
-    
-        <div class="form-group">
-            <label>Medio de verificación:</label> 
-            <input name="Medio de verificación" type="text" class="form-control"/>
-        </div>
-   
+            <div class="form-group">
+                @Html.Label("Medio de verificación:")
+                <input name="Medio de verificación" type="text" class="form-control"/>
+            </div>
 
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" name="Suma" value="true" checked>Suma
-        </label>
-    </div>
+            <div class="form-group">
+                @Html.Label("Responsable:")
+                <select class="form-control" name="ResponsableId">
 
-<input type="submit" class="btn btn-primary" value="Guardar">   
-<button class="btn btn-danger">Cerrar</button>
-        </form>
+                </select>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="Suma" value="true" checked>Suma
+                </label>
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Guardar">
+            <input type="button" class="btn btn-danger" value="Cerrar" onclick="location.href='Index'"/>     
+    </fieldset>  
+    }
 </div>

@@ -5,7 +5,7 @@ using Domain.Institucion;
 
 namespace Domain.Poa
 {
-    public class Actividad : EntityBase<int>, IAttribute
+    public class Actividad : EntityBase<int>, IAttribute, IAggregateRoot
     {
         public virtual string Descripcion { get; set; }
         public virtual Producto Producto { get; set; }

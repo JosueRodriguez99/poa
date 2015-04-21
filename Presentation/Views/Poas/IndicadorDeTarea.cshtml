@@ -1,51 +1,75 @@
-﻿@{
+﻿@model List<Application.Poa.ViewModels.TareaViewModel>
+
+@{
     ViewBag.Title = "IndicadorDeTarea";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="light-box-form">
     
-    <form action="~/Poas/IndicadorDeTarea" method="POST">
+    @using (Html.BeginForm("IndicadorDeTarea", "Poas")){
+        <fieldset>
+            <legend>Indicador de tarea</legend>
 
-    <h1>Indicador de tarea</h1>
+            <div class="form-group">
+                @Html.Label("Tarea:")
+                <select class="form-control" name="TareaId">
 
-        <div class="form-group">
-            <label>Tarea:</label>
-            <select class="form-control" name="ActividadId">
+                </select>
+            </div>
 
-            </select>
-        </div>
+            <div class="form-group">
+                @Html.Label("Descripción:")
+                <input name="Descripcion" type="text" class="form-control"/>
+            </div>
 
-        <div class="form-group">
-            <label>Descripción:</label>
-            <textarea cols="40" rows="5" name="Descripcion" class="form-control"></textarea>
-        </div>
+            <div class="form-group">
+                @Html.Label("Unidad de medida:")
+                <select class="form-control" name="UnidadDeMedidaId">
+                    
+                </select>
+            </div>
 
-        <div class="form-group">
-            <label>Unidad de medida:</label>
-            <select class="form-control" name="UnidadDeMedidaId">
+            <div class="form-group">
 
-            </select>
-        </div>
+                <table class="table table-hover table-bordered">
+                    <thead>
+                    @Html.Label("Programación Mensual")
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>1</th><th><input name="Enero" type="text" class="form-control"/></th>
+                        <th>2</th><th><input name="Febrero" type="text" class="form-control"/></th>
+                        <th>3</th><th><input name="Marzo" type="text" class="form-control"/></th>
+                        <th>4</th><th><input name="Abril" type="text" class="form-control"/></th>
+                        <th>5</th><th><input name="Mayo" type="text" class="form-control"/></th>
+                        <th>6</th><th><input name="Junio" type="text" class="form-control"/></th>
+                        <th>7</th><th><input name="Julio" type="text" class="form-control"/></th>
+                        <th>8</th><th><input name="Agosto" type="text" class="form-control"/></th>
+                        <th>9</th><th><input name="Septiembre" type="text" class="form-control"/></th>
+                        <th>10</th><th><input name="Octubre" type="text" class="form-control"/></th>
+                        <th>11</th><th><input name="Noviembre" type="text" class="form-control"/></th>
+                        <th>12</th><th><input name="Diciembre" type="text" class="form-control"/></th>
+                    </tr>
 
-        <div class="form-group">
-            <label>Meta:</label> 
-            <input name="Meta" type="text" class="form-control"/>
-        </div>
+                    </tbody>
+                </table>
+            </div>
 
-         <div class="form-group">
-            <label>Medio de verificación:</label> 
-            <input name="Medio de verificación" type="text" class="form-control"/>
-        </div>
+            <div class="form-group">
+                @Html.Label("Medio de verificación:")
+                <input name="Medio de verificación" type="text" class="form-control"/>
+            </div>
    
-        <div class="form-group">
-            <label>Indicador de actividad al que suma:</label>
-            <select class="form-control" name="ActividadId">
+            <div class="form-group">
+                @Html.Label("Indicador de actividad al que suma:")
+                <select class="form-control" name="ActividadId">
 
-            </select>
-        </div>
+                </select>
+            </div>
         
-        <input type="submit" class="btn btn-primary" value="Guardar">   
-        <button class="btn btn-danger">Cerrar</button>
-    </form>
+            <input type="submit" class="btn btn-primary" value="Guardar">   
+            <button class="btn btn-danger">Cerrar</button>
+    </fieldset>  
+    }
 </div>

@@ -38,10 +38,11 @@ namespace Presentation.Controllers
         [HttpPost]
         public ActionResult Create(ProductoDto dto)
         {
+            /*
             if (!ModelState.IsValid)
             {
                 return View(dto);
-            }
+            }*/
 
             try
             {

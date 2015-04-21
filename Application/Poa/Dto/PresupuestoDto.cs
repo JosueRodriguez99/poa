@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Poa;
 
 namespace Application.Poa.Dto
 {
-    class PresupuestoDto
+    public class PresupuestoDto
     {
+        public int Id { get; set; }
+        public int ConceptoPresupuestoId { get; set; }
+        public double Monto { get; set; }
+        public int ProgramaEstrategicoId { get; set; }
+        public int PoaId { get; set; }
     }
 }

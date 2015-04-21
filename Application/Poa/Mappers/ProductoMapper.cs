@@ -14,6 +14,7 @@ namespace Application.Poa.Mappers
             viewModel.Descripcion = producto.Descripcion;
             viewModel.ProgramaEstrategico = producto.ProgramaEstrategico.Nombre;
             viewModel.Estado = (producto.Activo) ? "Activo" : "Inactivo";
+
             return viewModel;
         }
 
@@ -24,6 +25,7 @@ namespace Application.Poa.Mappers
             producto.Codigo = dto.Codigo;
             producto.Descripcion = dto.Descripcion;
             producto.Activo = dto.Activo;
+
             return producto;
         }
     }

@@ -2,9 +2,9 @@
 {
     public class PresupuestoViewModel
     {
-        public int PresupuestoId { get; set; }
+        public int Id { get; set; }
         public int ConceptoPresupuesto { get; set; }
         public double Monto { get; set; }
-        public int ProgramaEstrategico { get; set; }
+        public string ProgramaEstrategico { get; set; }
     }
 }

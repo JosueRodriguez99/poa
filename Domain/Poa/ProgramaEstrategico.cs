@@ -25,6 +25,13 @@ namespace Domain.Poa
             Productos.Add(producto);
         }
 
+        public virtual void AgregarPresupuesto(Presupuesto presupuesto)
+        {
+            if (presupuesto == null) throw new ArgumentException("presupuesto");
+            presupuesto.ProgramaEstrategico = this;
+            Presupuestos.Add(presupuesto);
+        }
+
         protected override void Validate()
         {
             throw new NotImplementedException();

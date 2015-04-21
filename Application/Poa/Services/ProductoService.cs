@@ -75,7 +75,18 @@ namespace Application.Poa.Services
                 productoViewModels.Add(productoGuardado.ToViewModel());
 
             return productoViewModels;
+        }
 
+        [UnitOfWork]
+        public List<ProductoViewModel> ObtenerProductosPorProgramaEstrategico(int programaEstrategicoId)
+        {
+            var productosViewModels = new List<ProductoViewModel>();
+            var productos = ProductoRepository.GetAll().Where(x => x.ProgramaEstrategico.Id == programaEstrategicoId).ToList();
+
+            foreach (var producto in productos)
+                productosViewModels.Add(producto.ToViewModel());
+
+            return productosViewModels;
         }
     }
 }

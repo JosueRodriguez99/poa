@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Application.Poa.Dto
 {
-    class ActividadDto
+    public class ActividadDto
     {
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "Por favor ingrese una descripción")]
+        public string Descripcion { get; set; }
+
+        [Required]
+        public int ProductoId { get; set; }
+
+        [Required]
+        public string Responsable { get; set; }
+
+        [Required]
+        public int PoaId { get; set; }
     }
 }

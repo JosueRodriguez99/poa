@@ -28,8 +28,8 @@ namespace Application.Institucion.Services
 
             var dependencia = new Dependencia();
             dependencia.Nombre = request.Nombre;
-            dependencia.Responsable = _usuarioRepository.Get(request.ResponsableId);
-            dependencia.Analista = _usuarioRepository.Get(request.AnalistaId);
+            dependencia.AsignarResponsable(_usuarioRepository.Get(request.ResponsableId));
+            dependencia.AsignarAnalista(_usuarioRepository.Get(request.AnalistaId));
             dependencia.Reporta = _dependenciaRepository.Get(request.ReportaId);
             dependencia.Activo = request.Activo;
             _dependenciaRepository.Insert(dependencia);
@@ -42,8 +42,8 @@ namespace Application.Institucion.Services
             var dependencia = new Dependencia();
             dependencia.Id = request.Id;
             dependencia.Nombre = request.Nombre;
-            dependencia.Responsable = _usuarioRepository.Get(request.ResponsableId);
-            dependencia.Analista = _usuarioRepository.Get(request.AnalistaId);
+            dependencia.AsignarResponsable(_usuarioRepository.Get(request.ResponsableId));
+            dependencia.AsignarAnalista(_usuarioRepository.Get(request.AnalistaId));
             dependencia.Reporta = _dependenciaRepository.Get(request.ReportaId);
             dependencia.Activo = request.Activo;
             _dependenciaRepository.Update(dependencia);
@@ -57,6 +57,18 @@ namespace Application.Institucion.Services
         public DependenciaViewModel ObtenerPorId(int id)
         {
             return _dependenciaRepository.Get(id).ToViewModel();
+        }
+
+        [UnitOfWork]
+        public List<DependenciaViewModel> ObtenerDependenciasPorJefe(int usuarioId)
+        {
+            var dependenciaViewModels = new List<DependenciaViewModel>();
+            var dependencias = _dependenciaRepository.GetAll().Where(x => x.Responsable.Id == usuarioId).ToList();
+
+            foreach (var dependencia in dependencias)
+                dependenciaViewModels.Add(dependencia.ToViewModel());
+
+            return dependenciaViewModels;
         }
 
         [UnitOfWork]

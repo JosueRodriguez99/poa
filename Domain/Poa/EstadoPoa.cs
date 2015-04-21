@@ -5,6 +5,6 @@
         Guardado = 1,
         Enviado = 2,
         Rechazado = 3,
-        Aprovado = 4
+        Aprobado = 4
     }
 }

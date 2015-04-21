@@ -7,7 +7,6 @@
     @using (Html.BeginForm("Create", "ProgramasEstrategicos")){
         <fieldset>
 
-<<<<<<< HEAD
             <legend>Programa estratégico</legend>
        
             <div class="form-group">
@@ -22,24 +21,6 @@
                 <textarea cols="40" rows="5" name="Descripcion" class="form-control"></textarea>
                 @Html.ValidationMessage("Descripcion")
             </div>
-=======
-        <div class="form-group">
-            <label>Descripción:</label>
-            <textarea cols="40" rows="5" name="Descripcion" class="form-control"></textarea>
-        </div>
-<<<<<<< HEAD
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="Activo" value="1" checked>Activo
-=======
-
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="Activo" value="true" checked>Activo
->>>>>>> origin
-            </label>
-        </div>
->>>>>>> 44bb9f4162180875e28c7fffd07c4942ac84773e
 
             @Html.CheckBox("Activo")
             <b>

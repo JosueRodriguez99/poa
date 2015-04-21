@@ -11,9 +11,10 @@ namespace Infrastructure.Poa.Mappings
             Id(x => x.Id, "Actividad_Id");
             Map(x => x.Descripcion, "Descripcion");
             References(x => x.Producto, "Producto_Id");
+            References(x => x.Responsable, "Responsable");
             References(x => x.Poa, "Poa_Id");
             HasMany(x => x.Tareas).Inverse().Cascade.All();
-            //HasMany(x => x.Responsable).Inverse().Cascade.All();
+            HasMany(x => x.Indicadores).Inverse().Cascade.All();
         }
     }
 }

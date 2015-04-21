@@ -10,10 +10,18 @@ namespace Infrastructure.Institucion.Mappings
             Table("Usuarios");
             Id(x => x.Id, "Usuario_Id");
             Map(x => x.NombreUsuario, "NombreUsuario");
-            Map(x => x.RolUsuario, "RolUsuario_Id").CustomType<int>();
+            Map(x => x.RolUsuario, "RolUsuario_Id");
             Map(x => x.Activo, "Activo");
-            References(x => x.Dependencia, "Dependencia_Id").Not.LazyLoad();
-            HasMany(x => x.DependenciasAsignadas).Inverse().Cascade.All();
+            HasMany(x => x.Dependencias)
+                .Not.LazyLoad()
+                .KeyColumn("Responsable_Usuario_Id")
+                .Inverse()
+                .Cascade.All();
+            HasMany(x => x.DependenciasAsignadas)
+                .Not.LazyLoad()
+                .KeyColumn("Analista_Usuario_Id")
+                .Inverse()
+                .Cascade.All();
         }
     }
 }

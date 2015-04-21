@@ -9,7 +9,8 @@ namespace Application.Institucion.Mappers
         public static Dependencia ToDependencia(this DependenciaDto dto)
         {
             var dependencia = new Dependencia();
-            //Implementar
+            dependencia.Id = dto.Id;
+
             return dependencia;
         }
 

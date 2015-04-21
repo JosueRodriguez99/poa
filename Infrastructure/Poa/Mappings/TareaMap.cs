@@ -12,7 +12,7 @@ namespace Infrastructure.Poa.Mappings
             Map(x => x.Descripcion, "Descripcion");
             References(x => x.Actividad, "Actividad_Id");
             HasMany(x => x.Indicadores).Inverse().Cascade.All();
-            //References(x => x.Responsable, "Dependencia_Id");
+            References(x => x.Responsable, "Dependencia_Id");
         }
     }
 }

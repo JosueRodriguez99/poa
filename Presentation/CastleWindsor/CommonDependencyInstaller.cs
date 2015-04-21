@@ -69,6 +69,31 @@ namespace Presentation.CastleWindsor
                 .LifeStyle.Transient);
 
             container
+                .Register(Component.For<IPoaService>()
+                .ImplementedBy<PoaService>()
+                .LifeStyle.Transient);
+
+            container
+                .Register(Component.For<IPoaRepository>()
+                .ImplementedBy<PoaRepository>()
+                .LifeStyle.Transient);
+
+            container
+                .Register(Component.For<IConceptoPresupuestoRepository>()
+                .ImplementedBy<ConceptoPresupuestoRepository>()
+                .LifeStyle.Transient);
+
+            container
+                .Register(Component.For<IActividadService>()
+                .ImplementedBy<ActividadService>()
+                .LifeStyle.Transient);
+
+            container
+                .Register(Component.For<IActividadRepository>()
+                .ImplementedBy<ActividadRepository>()
+                .LifeStyle.Transient);
+
+            container
                 .Register(Component.For<ISessionFactory>()
                 .UsingFactoryMethod(NhSessionFactory.Create)
                 .LifeStyle.Singleton);

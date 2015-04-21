@@ -1,13 +1,19 @@
-﻿@{
+﻿@model Presentation.Models.Poa.CreatePoaPageView
+@{
     ViewBag.Title = "POAs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row">
     <div class="col-sm-8">
-        <div>
+        <div class="col-sm-4">
             <h2>Dependencia: </h2>
-            <h3>Responsable: @User.Identity.Name</h3>
+            <select class="form-control" name="DependenciaId">
+                    @foreach (var dependencia in Model.Dependencias)
+                    {
+                        <option value="@dependencia.Id">@dependencia.Nombre</option>
+                    }
+            </select>
         </div>
     </div>
     <div class="col-sm-4">
@@ -19,6 +25,7 @@
                 <tr><td>Servicios no personales</td><td></td></tr>
                 <tr><td>Materiales y servicios</td><td></td></tr>
                 <tr><td>Bienes capitalizables</td><td></td></tr>
+                <tr><td>Transferencias</td><td></td></tr>
             </tbody>
         </table>
     </div>  
@@ -28,7 +35,13 @@
     <div class="col-sm-4">
         <form action="~/Poas/Create" method="POST">
             <div class="form-group">
-                <label>Programa Estrategico:</label> <select class="form-control" name="ProgramaEstrategicoId"></select>
+                <label>Programa Estrategico:</label> 
+                <select class="form-control" name="ProgramaEstrategicoId">
+                    @foreach (var programaEstrategico in Model.ProgramasEstrategicos)
+                    {
+                        <option value="@programaEstrategico.Id">@programaEstrategico.Nombre</option>
+                    }
+                </select>
             </div>
         </form>
     </div>
@@ -55,7 +68,7 @@
             <a href="#">
                 <button type="button" class="btn btn-default">Guardar</button>
             </a>
-            <a href="~/Poas/Actividad">
+            <a href="~/Actividades/Create">
                 <button type="button" class="btn btn-default">Actividad</button>
             </a>
             <a href="~/Poas/Tarea">
@@ -67,7 +80,7 @@
             <a href="~/Poas/IndicadorDeTarea">
                 <button type="button" class="btn btn-default">Indicador Tarea</button>
             </a>
-             <a href="Presupuesto">
+             <a href="~/Presupuestos/Create">
                 <button type="button" class="btn btn-default">Presupuesto</button>
             </a>
             <div class="btn-toolbar pull-right" role="toolbar">

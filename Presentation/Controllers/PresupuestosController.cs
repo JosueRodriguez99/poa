@@ -3,45 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Application.Poa.Dto;
 
 namespace Presentation.Controllers
 {
-    public class MatricesDeSeguimientoController : Controller
+    public class PresupuestosController : Controller
     {
-        //
-        // GET: /MatricesDeSeguimiento/
-
+        // GET: /Presupuestos/
         public ActionResult Index()
         {
             return View();
         }
 
-        //
-        // GET: /MatricesDeSeguimiento/Details/5
-
+        // GET: /Presupuestos/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        //
-        // GET: /MatricesDeSeguimiento/Create
-
+        // GET: /Presupuestos/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        //
-        // POST: /MatricesDeSeguimiento/Create
-
+        // POST: /Presupuestos/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(PresupuestoDto dto)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                var poa = (PoaDto)System.Web.HttpContext.Current.Session["Poa"];
+                poa.Presupuestos.Add(dto);
                 return RedirectToAction("Index");
             }
             catch
@@ -50,17 +43,13 @@ namespace Presentation.Controllers
             }
         }
 
-        //
-        // GET: /MatricesDeSeguimiento/Edit/5
-
+        // GET: /Presupuestos/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        //
-        // POST: /MatricesDeSeguimiento/Edit/5
-
+        // POST: /Presupuestos/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -76,17 +65,13 @@ namespace Presentation.Controllers
             }
         }
 
-        //
-        // GET: /MatricesDeSeguimiento/Delete/5
-
+        // GET: /Presupuestos/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        //
-        // POST: /MatricesDeSeguimiento/Delete/5
-
+        // POST: /Presupuestos/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

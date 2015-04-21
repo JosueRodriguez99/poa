@@ -6,7 +6,7 @@ namespace Domain.Poa
     public class IndicadorTarea : Indicador
     {
         public virtual Tarea Tarea { get; set; }
-        public virtual IndicadorTarea IndicadorAlQueSuma { get; set; }
+        public virtual IndicadorActividad IndicadorAlQueSuma { get; set; }
         public virtual IList<ProgramacionTarea> ProgramacionMensual { get; set; }
         public virtual IList<EjecucionTarea> EjecucionMensual { get; set; }
 

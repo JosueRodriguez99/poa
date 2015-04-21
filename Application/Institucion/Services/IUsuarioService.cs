@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Application.Institucion.Dto;
 using Application.Institucion.ViewModels;
+using Domain.Institucion;
 
 namespace Application.Institucion.Services
 {
@@ -10,7 +11,7 @@ namespace Application.Institucion.Services
         void ActualizarUsuario(UsuarioDto request);
         void EliminarUsuario(int id);
         UsuarioViewModel ObtenerUsuarioPorId(int id);
-        UsuarioViewModel ComprobarUsuario(string nombreUsuario);
+        Usuario ComprobarUsuario(string nombreUsuario);
         List<UsuarioViewModel> ObtenerJefes();
         List<UsuarioViewModel> ObtenerAnalistas();
         List<UsuarioViewModel> ObtenerUsuarios();

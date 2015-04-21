@@ -12,5 +12,6 @@ namespace Application.Poa.Services
         ProductoViewModel ObtenerProductoPorId(int id);
         List<ProductoViewModel> ObtenerProductos();
         List<ProductoViewModel> ObtenerProductosActivos();
+        List<ProductoViewModel> ObtenerProductosPorProgramaEstrategico(int programaEstrategicoId);
     }
 }

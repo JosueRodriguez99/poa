@@ -73,6 +73,7 @@
     <Compile Include="Poa\Mappings\ProgramacionTareaMap.cs" />
     <Compile Include="Poa\Mappings\ProgramaEstrategicoMap.cs" />
     <Compile Include="Poa\Mappings\TareaMap.cs" />
+    <Compile Include="Poa\Repositories\ActividadRepository.cs" />
     <Compile Include="Poa\Repositories\ConceptoPresupuestoRepository.cs" />
     <Compile Include="Poa\Repositories\PoaRepository.cs" />
     <Compile Include="Poa\Repositories\ProductoRepository.cs" />

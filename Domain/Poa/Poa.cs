@@ -33,7 +33,12 @@ namespace Domain.Poa
             presupuesto.Poa = this;
             Presupuestos.Add(presupuesto);
         }
-
+        
+        public virtual void Enviar()
+        {
+            FechaEnvio = DateTime.Now;
+            Estado = EstadoPoa.Enviado;
+        }
         protected override void Validate()
         {
             throw new NotImplementedException();
