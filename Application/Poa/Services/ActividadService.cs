@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Application.Poa.Dto;
 using Application.Poa.Mappers;
 using Application.Poa.ViewModels;
 using Domain.Poa;
 using Infrastructure.NHibernate;
+using System.Linq;
 
 namespace Application.Poa.Services
 {
@@ -40,8 +40,8 @@ namespace Application.Poa.Services
         {
             var actividadesViewModel = new List<ActividadViewModel>();
             var actividades = _actividadRepository.GetAll().Where(x => x.Poa.Id == poaId).ToList();
-            foreach (var actividad in actividades)
-             actividadesViewModel.Add(actividad.ToViewModel());   
+            /*foreach (var actividad in actividades)
+             actividadesViewModel.Add(actividad.ToViewModel()); */  
 
             return actividadesViewModel;
         }

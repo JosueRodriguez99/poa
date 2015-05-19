@@ -70,5 +70,13 @@ namespace Application.Poa.Services
         {
             throw new NotImplementedException();
         }
+
+        [UnitOfWork]
+        public void AgregarIndicador(int tareaId, IndicadorTareaDto dto)
+        {
+            var tarea = TareaRepository.Get(tareaId);
+            tarea.AgregarIndicador(dto.ToEntity());
+            TareaRepository.Update(tarea);
+        }
     }
 }

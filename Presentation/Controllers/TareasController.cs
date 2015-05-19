@@ -3,79 +3,82 @@ using System.Web.Mvc;
 using Application.Poa.Dto;
 using Application.Poa.Services;
 using Presentation.Models.Poa;
+using Application.Institucion.Services;
 
-using Application.Institucion.Services;namespace Presentation.Controllers
+namespace Presentation.Controllers
 {
-    public class ActividadesController : Controller
+    public class TareasController : Controller
     {
         private readonly IActividadService _actividadService;
-        private readonly IProductoService _productoService;
         private readonly IDependenciaService _dependenciaService;
-        //private readonly IPoaService _poaService; 
 
-        public ActividadesController(IActividadService actividadService, IProductoService productoService, IDependenciaService dependenciaService)
+        public TareasController(IActividadService actividadService, IDependenciaService dependenciaService)
         {
             if (actividadService == null) throw new ArgumentNullException("actividadService");
-            if (productoService == null) throw new ArgumentNullException("productoService");
             if (dependenciaService == null) throw new ArgumentNullException("dependenciaService");
 
             _actividadService = actividadService;
-            _productoService = productoService;
             _dependenciaService = dependenciaService;
         }
 
-        /*
-        //GET: /Actividades/
+        //
+        // GET: /Tareas/
+
         public ActionResult Index()
         {
             return View();
-        }*/
+        }
 
-        /*
-        // GET: /Actividades/Details/5
+        //
+        // GET: /Tareas/Details/5
+
         public ActionResult Details(int id)
         {
             return View();
-        }*/
-
-        // GET: /Actividades/Create
-        public ActionResult Create()
-        {
-            var productos = _productoService.ObtenerProductosActivos();
-            var dependencias = _dependenciaService.ObtenerDependencias();
-            var pageView = new ActividadPageView(productos, dependencias);
-            return View(pageView);
         }
 
-        // POST: /Actividades/Create
-       /* [HttpPost]
+        //
+        // GET: /Tareas/Create
+
         public ActionResult Create()
+        {
+            //var actividades = _actividadService.ObtenerActividades();
+            //var dependencias = _dependenciaService.ObtenerDependencias();
+            //var pageView = new ActividadPageView(actividades, dependencias);
+            return View();
+        }
+
+        //
+        // POST: /Tareas/Create
+
+        [HttpPost]
+        public ActionResult Create(TareaDto dto)
         {
             try
             {
-                //_poaService.AgregarActividad(NuevaActividadDto);
-                return RedirectToAction("Index");
+               return RedirectToAction("Index");
             }
             catch
             {
-                var productos = _productoService.ObtenerProductosActivos();
-                var dependencias = _dependenciaService.ObtenerDependencias();
-                var pageView = new ActividadPageView(productos, dependencias);
-                return View(pageView);
+               // var poa = (PoaDto)System.Web.HttpContext.Current.Session["Poa"];
+               // var actividades = _actividadService.ObtenerActividades(poa);
+               // var dependencias = _dependenciaService.ObtenerDependencias();
+               // var pageView = new ActividadPageView(actividades, dependencias);
+               return View();
             }
-        }*/
+        }
 
-        /*
-        // GET: /Actividades/Edit/5
+        //
+        // GET: /Tareas/Edit/5
 
         public ActionResult Edit(int id)
         {
             return View();
         }
-        */ 
 
-        /*
-        // POST: /Actividades/Edit/5
+        //
+        // POST: /Tareas/Edit/5
+
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -90,19 +93,18 @@ using Application.Institucion.Services;namespace Presentation.Controllers
                 return View();
             }
         }
-        */
 
-        /*
-        // GET: /Actividades/Delete/5
+        //
+        // GET: /Tareas/Delete/5
 
         public ActionResult Delete(int id)
         {
             return View();
         }
-        */ 
 
-        /*
-        // POST: /Actividades/Delete/5
+        //
+        // POST: /Tareas/Delete/5
+
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -117,6 +119,5 @@ using Application.Institucion.Services;namespace Presentation.Controllers
                 return View();
             }
         }
-        */
     }
 }

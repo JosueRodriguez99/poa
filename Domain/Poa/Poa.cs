@@ -18,6 +18,7 @@ namespace Domain.Poa
         {
             Actividades = new List<Actividad>();
             Presupuestos = new List<Presupuesto>();
+            FechaEnvio = DateTime.Now;
         }
 
         public virtual void AgregarActividad(Actividad actividad)

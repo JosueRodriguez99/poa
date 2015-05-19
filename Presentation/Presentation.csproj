@@ -158,10 +158,13 @@
     <Compile Include="Controllers\DependenciaPoaController.cs" />
     <Compile Include="Controllers\DependenciasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndicadoresDeActividadesController.cs" />
+    <Compile Include="Controllers\IndicadoresDeTareasController.cs" />
     <Compile Include="Controllers\PoasController.cs" />
     <Compile Include="Controllers\PresupuestosController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\ProgramasEstrategicosController.cs" />
+    <Compile Include="Controllers\TareasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,6 +174,7 @@
     <Compile Include="Models\Poa\ActividadPageView.cs" />
     <Compile Include="Models\Poa\CreatePoaPageView.cs" />
     <Compile Include="Models\Poa\EditProductoPageView.cs" />
+    <Compile Include="Models\Poa\TareaPageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -288,7 +292,7 @@
     <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Poas\Create.cshtml" />
+    <Content Include="Views\Poas\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Poas\Actividad.cshtml" />
@@ -328,6 +332,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Presupuestos\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Poas\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tareas\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\IndicadoresDeActividades\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\IndicadoresDeTareas\Create.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

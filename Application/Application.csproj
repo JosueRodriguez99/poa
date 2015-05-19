@@ -58,6 +58,7 @@
     <Compile Include="Poa\Dto\IndicadorActividadDto.cs" />
     <Compile Include="Poa\Dto\IndicadorDto.cs" />
     <Compile Include="Poa\Dto\IndicadorTareaDto.cs" />
+    <Compile Include="Poa\Dto\NuevaActividadDto.cs" />
     <Compile Include="Poa\Dto\PoaDto.cs" />
     <Compile Include="Poa\Dto\PresupuestoDto.cs" />
     <Compile Include="Poa\Dto\ProductoDto.cs" />
@@ -70,6 +71,8 @@
     <Compile Include="Poa\Mappers\EjecucionActividadMapper.cs" />
     <Compile Include="Poa\Mappers\EjecucionTareaMapper.cs" />
     <Compile Include="Poa\Mappers\IndicadorActividadMapper.cs" />
+    <Compile Include="Poa\Mappers\IndicadorTareaMapper.cs" />
+    <Compile Include="Poa\Mappers\NuevaActividadMapper.cs" />
     <Compile Include="Poa\Mappers\PoaMapper.cs" />
     <Compile Include="Poa\Mappers\PresupuestoMapper.cs" />
     <Compile Include="Poa\Mappers\ProductoMapper.cs" />
@@ -88,6 +91,7 @@
     <Compile Include="Poa\ViewModels\EstadoPoaViewModel.cs" />
     <Compile Include="Poa\ViewModels\IndicadorActividadViewModel.cs" />
     <Compile Include="Poa\ViewModels\IndicadorTareaViewModel.cs" />
+    <Compile Include="Poa\ViewModels\NuevaActividadViewModel.cs" />
     <Compile Include="Poa\ViewModels\PoaViewModel.cs" />
     <Compile Include="Poa\ViewModels\PresupuestoViewModel.cs" />
     <Compile Include="Poa\ViewModels\ProductoViewModel.cs" />

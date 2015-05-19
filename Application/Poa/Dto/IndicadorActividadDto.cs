@@ -5,7 +5,7 @@ namespace Application.Poa.Dto
     public class IndicadorActividadDto
     {
         public int Id { get; set; }
-        public int Actividad { get; set; }
+        public int ActividadId { get; set; }
         public bool Suma { get; set; }
         public List<IndicadorTareaDto> Indicadores { get; set; }
         public List<ProgramacionActividadDto> ProgramacionMensual { get; set; }

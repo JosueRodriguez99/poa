@@ -34,22 +34,44 @@ namespace Presentation.Controllers
             return View();
         }
 
-
         // GET: /Poas/Create
         public ActionResult Create()
         {
             var usuarioActual = (Usuario)System.Web.HttpContext.Current.Session["CurrentUSer"];
             var dependencias = _dependenciaService.ObtenerDependenciasPorJefe(usuarioActual.Id);
-            var programasEstrategicos = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
-            var poa = new PoaDto();
-            poa.DependenciaId = dependencias[0].Id;
-            System.Web.HttpContext.Current.Session["Poa"] = poa;
-            return View(new CreatePoaPageView(dependencias, programasEstrategicos));
+            return View(dependencias);
         }
 
         // POST: /Poas/Create
         [HttpPost]
-        public ActionResult Create(int dependeciaId)
+        public ActionResult Create(FormCollection collection)
+        {
+            var id = Convert.ToInt16(collection["DependenciaId"]);
+            try
+            {
+                var poaId = _poaService.CrearPoa(id);
+                return RedirectToAction("Details", new { id = poaId });
+            }
+            catch
+            {
+                var usuarioActual = (Usuario)System.Web.HttpContext.Current.Session["CurrentUSer"];
+                var dependencias = _dependenciaService.ObtenerDependenciasPorJefe(usuarioActual.Id);
+                return View(dependencias);
+            }
+        }
+
+        // GET: /Poas/Details/{5}
+        public ActionResult Details(int id)
+        {
+            var poa = _poaService.ObtenerPoaPorId(id);
+            var programasEstrategicos = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
+            var pageView = new CreatePoaPageView(poa, programasEstrategicos);
+            return View(pageView);
+        }
+
+        // POST: /Poas/Details
+        /*[HttpPost]
+        public ActionResult Details(int dependeciaId)
         {
             try
             {
@@ -58,13 +80,12 @@ namespace Presentation.Controllers
             }
             catch
             {
-                var usuarioActual = (Usuario)System.Web.HttpContext.Current.Session["CurrentUSer"];
-                var dependencias = _dependenciaService.ObtenerDependenciasPorJefe(usuarioActual.Id);
+                var poa = _poaService.ObtenerPoaPorId(id);
                 var programasEstrategicos = _programaEstrategicoService.ObtenerProgramasEstrategicosActivos();
-                return View(new CreatePoaPageView(dependencias, programasEstrategicos));
+                var pageView = new CreatePoaPageView(programasEstrategicos, poa);
+                return View(pageView);
             }
-        }
-        
+        }*/
 
         // GET: /Poas/Edit/5
         public ActionResult Edit(int id)

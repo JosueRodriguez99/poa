@@ -14,7 +14,6 @@ h1
     width: 100%;
     background: #004B8D;
     padding: 10px;
-    
 }
 
 .footer-a{
@@ -196,6 +195,11 @@ h1
     }
 
     .footer {
-        margin-top: 100px;
+        
+        margin-top: 50px;
+        bottom: 0;
+        width: 100%;
+        background: #004B8D;
+        padding: 10px;
     }
 }

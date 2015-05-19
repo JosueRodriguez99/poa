@@ -29,13 +29,14 @@ namespace Application.Poa.Services
         }
 
         [UnitOfWork]
-        public void CrearPoa(int dependenciaId)
+        public int CrearPoa(int dependenciaId)
         {
             var poa = new Domain.Poa.Poa();
             poa.Version = 1;
             poa.Dependencia = _dependenciaRepository.Get(dependenciaId);
             poa.Estado = EstadoPoa.Guardado;
             _poaRepository.Insert(poa);
+            return poa.Id;
         }
 
         [UnitOfWork]
@@ -53,6 +54,7 @@ namespace Application.Poa.Services
             var presupuesto = new Presupuesto();
             presupuesto.ConceptoPresupuesto = _conceptoPresupuestoRepository.Get(dto.ConceptoPresupuestoId);
             presupuesto.Monto = dto.Monto;
+            poa.AgregarPresupuesto(presupuesto);
             _poaRepository.Update(poa);
         }
 

@@ -11,7 +11,7 @@ namespace Infrastructure.Poa.Mappings
             Map(x => x.FechaEnvio, "FechaEnvio");
             Map(x => x.Version, "Version");
             Map(x => x.Estado, "EstadoPoa_Id").CustomType<int>();
-            References(x => x.Dependencia, "Dependencia_Id");
+            References(x => x.Dependencia, "Dependencia_Id").Not.LazyLoad();
             HasMany(x => x.Actividades).Inverse().Cascade.All();
             HasMany(x => x.Presupuestos).Inverse().Cascade.All();
         }

@@ -5,18 +5,18 @@ using Application.Institucion.ViewModels;
 
 namespace Presentation.Models.Poa
 {
-    public class ActividadPageView
+    public class TareaPageView
     {
-        public List<ProductoViewModel> Productos { get; private set; }
         public List<DependenciaViewModel> Dependencias { get; private set; }
+        public List<ActividadViewModel> Actividades { get; private set; }
 
-        public ActividadPageView(List<ProductoViewModel> productos, List<DependenciaViewModel> dependencias)
+        public TareaPageView(List<DependenciaViewModel> dependencias, List<ActividadViewModel> actividades)
         {
-            if (productos == null) throw new ArgumentNullException("productos");
             if (dependencias == null) throw new ArgumentNullException("dependencias");
+            if (actividades == null) throw new ArgumentNullException("actividades");
 
-            Productos = productos;
             Dependencias = dependencias;
+            Actividades = actividades;
         }
     }
 }

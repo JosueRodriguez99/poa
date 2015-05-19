@@ -1,0 +1,89 @@
+﻿@model Presentation.Models.Poa.CreatePoaPageView
+
+@{
+    ViewBag.Title = "POAs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-sm-8">
+        <div class="col-sm-4">
+
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <table class="table table-hover table-bordered pull-right">
+            <thead>
+                <tr><th>Presupuesto</th><th>Monto</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Servicios no personales</td><td></td></tr>
+                <tr><td>Materiales y servicios</td><td></td></tr>
+                <tr><td>Bienes capitalizables</td><td></td></tr>
+                <tr><td>Transferencias</td><td></td></tr>
+            </tbody>
+        </table>
+    </div>  
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <form action="~/Poas/Details" method="POST">
+            <div class="form-group">
+                <label>Programa Estrategico:</label> 
+                <select class="form-control" name="ProgramaEstrategicoId">
+                @foreach (var programaEstrategico in Model.ProgramasEstrategicos)
+                {
+                    <option value="@programaEstrategico.Id">@programaEstrategico.Nombre</option>
+                }
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr><th>Código</th><th>N°</th><th>Producto/Actividad/Tarea</th><th>Indicador</th>
+                <th>Meta</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th>
+                <th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>Medio Verificación</th><th>Responsable</th></tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Botones de control -->
+    <div class="row">
+        <div class="col-sm-12">
+            <a href="#">
+                <button type="button" class="btn btn-default">Guardar</button>
+            </a>
+            <a href="~/Actividades/Create">
+                <button type="button" class="btn btn-default">Actividad</button>
+            </a>
+            <a href="~/Tareas/Create">
+                <button type="button" class="btn btn-default">Tarea</button>
+            </a>
+            <a href="~/IndicadoresDeActividades/Create">
+                <button type="button" class="btn btn-default">Indicador Actividad</button>
+            </a>
+            <a href="~/IndicadoresDeTareas/Create">
+                <button type="button" class="btn btn-default">Indicador Tarea</button>
+            </a>
+             <a href="~/Presupuestos/Create">
+                <button type="button" class="btn btn-default">Presupuesto</button>
+            </a>
+            <div class="btn-toolbar pull-right" role="toolbar">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default">Anterior</button>
+                    <button type="button" class="btn btn-default">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </div>

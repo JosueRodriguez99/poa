@@ -6,7 +6,7 @@ namespace Application.Poa.Services
 {
     public interface IPoaService
     {
-        void CrearPoa(int dependenciaId);
+        int CrearPoa(int dependenciaId);
         void AgregarActividad(ActividadDto dto);
         void AgregarPresupuesto(PresupuestoDto dto);
         void EliminarPoa(int id);

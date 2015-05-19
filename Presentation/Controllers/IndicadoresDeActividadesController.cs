@@ -1,53 +1,75 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Application.Poa.Dto;
+using Application.Poa.Services;
+using Presentation.Models.Poa;
 
 namespace Presentation.Controllers
 {
-    public class PresupuestosController : Controller
+    public class IndicadoresDeActividadesController : Controller
     {
-        // GET: /Presupuestos/
+        private readonly IActividadService _actividadService;
+
+        public IndicadoresDeActividadesController(IActividadService actividadService)
+        {
+            if (actividadService == null) throw new ArgumentNullException("actividadService");
+
+            _actividadService = actividadService;
+        }
+        //
+        // GET: /IndicadoresDeActividades/
+
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: /Presupuestos/Details/5
+        //
+        // GET: /IndicadoresDeActividades/Details/5
+
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: /Presupuestos/Create
+        //
+        // GET: /IndicadoresDeActividades/Create
+
         public ActionResult Create()
-        {
+        {   
+            //var actividades = _actividadService.ObtenerActividades();
             return View();
         }
 
-        // POST: /Presupuestos/Create
+        //
+        // POST: /IndicadoresDeActividades/Create
+
         [HttpPost]
-        public ActionResult Create(PresupuestoDto dto)
+        public ActionResult Create(IndicadorActividadDto dto)
         {
             try
             {
+                //_actividadService.AgregarIndicador(dto);
                 return RedirectToAction("Index");
             }
             catch
             {
+                //var actividades = _actividadService.ObtenerActividades();
                 return View();
             }
         }
 
-        // GET: /Presupuestos/Edit/5
+        //
+        // GET: /IndicadoresDeActividades/Edit/5
+
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: /Presupuestos/Edit/5
+        //
+        // POST: /IndicadoresDeActividades/Edit/5
+
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -63,13 +85,17 @@ namespace Presentation.Controllers
             }
         }
 
-        // GET: /Presupuestos/Delete/5
+        //
+        // GET: /IndicadoresDeActividades/Delete/5
+
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: /Presupuestos/Delete/5
+        //
+        // POST: /IndicadoresDeActividades/Delete/5
+
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

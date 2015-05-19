@@ -13,7 +13,7 @@ namespace Application.Poa.Dto
         public int ProductoId { get; set; }
 
         [Required]
-        public string Responsable { get; set; }
+        public string ResponsableId { get; set; }
 
         [Required]
         public int PoaId { get; set; }

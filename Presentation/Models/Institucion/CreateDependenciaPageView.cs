@@ -15,6 +15,7 @@ namespace Presentation.Models.Institucion
             if (jefes == null) throw new ArgumentNullException("jefes");
             if (analistas == null) throw new ArgumentNullException("analistas");
             if (dependencias == null) throw new ArgumentNullException("dependencias");
+
             Jefes = jefes;
             Analistas = analistas;
             Dependencias = dependencias;

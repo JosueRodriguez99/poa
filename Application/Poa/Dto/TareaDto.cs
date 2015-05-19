@@ -13,6 +13,6 @@ namespace Application.Poa.Dto
         public int ActividadId { get; set; }
 
         [Required]
-        public int DependenciaId { get; set; }
+        public int ResponsableId { get; set; }
     }
 }
